@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arquivo de Estudos — Meu Portfólio de Cursos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+  /* ============================================================
+     DADOS — edite aqui os seus cursos, instituições e cores
+     ============================================================ */
+
+</style>
+<script>
+  // ============================================================
+  // SEUS DADOS — edite este array para adicionar/remover cursos
+  // ============================================================
+  const DADOS = [
+    {
+      instituicao: "Universidade Federal Exemplo",
+      sigla: "UFE",
+      cor: "#7A9E7E", // verde musgo
+      cursos: [
+        { nome: "Introdução à Ciência da Computação", ano: "2023", horas: 60, categoria: "Graduação" },
+        { nome: "Estruturas de Dados", ano: "2023", horas: 80, categoria: "Graduação" },
+        { nome: "Banco de Dados I", ano: "2024", horas: 60, categoria: "Graduação" },
+      ]
+    },
+    {
+      instituicao: "Coursera",
+      sigla: "CRS",
+      cor: "#C9A66B", // latão
+      cursos: [
+        { nome: "Machine Learning Specialization", ano: "2024", horas: 45, categoria: "Especialização" },
+        { nome: "Google Data Analytics", ano: "2024", horas: 120, categoria: "Certificado Profissional" },
+      ]
+    },
+    {
+      instituicao: "Udemy",
+      sigla: "UDM",
+      cor: "#5B7C99", // azul acinzentado
+      cursos: [
+        { nome: "React do Zero ao Avançado", ano: "2025", horas: 40, categoria: "Curso Livre" },
+        { nome: "Design de APIs REST", ano: "2025", horas: 15, categoria: "Curso Livre" },
+        { nome: "Git e GitHub na Prática", ano: "2024", horas: 8, categoria: "Curso Livre" },
+      ]
+    },
+    {
+      instituicao: "Alura",
+      sigla: "ALR",
+      cor: "#A65B5B", // vinho
+      cursos: [
+        { nome: "Lógica de Programação", ano: "2022", horas: 20, categoria: "Curso Livre" },
+        { nome: "Python para Análise de Dados", ano: "2023", horas: 35, categoria: "Curso Livre" },
+      ]
+    },
+  ];
+
+  // Nome exibido no topo — altere para o seu nome
+  const NOME = "Rodrigo Cominato";
+  const SUBTITULO = "Relatório dos cursos que já realizei, organizado de acordo com as instituições";
+</script>
+</head>
+<body>
+
+<div class="grain"></div>
+
+<header class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Cursos Realizados</p>
+    <h1 id="nome-titulo" class="hero-title"></h1>
+    <p id="subtitulo" class="hero-sub"></p>
+    <div class="stats" id="stats"></div>
+  </div>
+</header>
+
+<nav class="index-nav" id="index-nav" aria-label="Índice de instituições"></nav>
+
+<main id="arquivo"></main>
+
+<footer class="site-footer">
+  <p>Catálogo atualizado em <span id="data-atual"></span></p>
+</footer>
+
+<script>
+(function(){
+
+  const arquivo = document.getElementById('arquivo');
+  const indexNav = document.getElementById('index-nav');
+  const statsEl = document.getElementById('stats');
+
+  document.getElementById('nome-titulo').textContent = NOME;
+  document.getElementById('subtitulo').textContent = SUBTITULO;
+
+  const totalCursos = DADOS.reduce((acc, inst) => acc + inst.cursos.length, 0);
+  const totalHoras = DADOS.reduce((acc, inst) => acc + inst.cursos.reduce((a,c)=>a+(c.horas||0),0), 0);
+  const totalInstituicoes = DADOS.length;
+
+  statsEl.innerHTML = `
+    <div class="stat"><span class="stat-num">${totalCursos}</span><span class="stat-label">cursos</span></div>
+    <div class="stat"><span class="stat-num">${totalInstituicoes}</span><span class="stat-label">instituições</span></div>
+    <div class="stat"><span class="stat-num">${totalHoras}h</span><span class="stat-label">de estudo</span></div>
+  `;
+
+  function slug(str){
+    return str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-');
+  }
+
+  DADOS.forEach((inst, instIdx) => {
+    const id = slug(inst.instituicao);
+
+    // link no índice
+    const navLink = document.createElement('a');
+    navLink.href = `#${id}`;
+    navLink.className = 'index-link';
+    navLink.style.setProperty('--accent', inst.cor);
+    navLink.innerHTML = `<span class="index-dot"></span>${inst.instituicao}`;
+    indexNav.appendChild(navLink);
+
+    // seção da instituição
+    const section = document.createElement('section');
+    section.className = 'drawer';
+    section.id = id;
+    section.style.setProperty('--accent', inst.cor);
+
+    section.innerHTML = `
+      <div class="drawer-header">
+        <span class="drawer-tab">${inst.sigla}</span>
+        <h2 class="drawer-title">${inst.instituicao}</h2>
+        <span class="drawer-count">${inst.cursos.length} curso${inst.cursos.length !== 1 ? 's' : ''}</span>
+      </div>
+      <div class="cards"></div>
+    `;
+
+    const cardsWrap = section.querySelector('.cards');
+    inst.cursos.forEach((curso, cIdx) => {
+      const codigo = `${inst.sigla}-${String(cIdx+1).padStart(2,'0')}`;
+      const card = document.createElement('article');
+      card.className = 'card';
+      card.innerHTML = `
+        <div class="card-code">${codigo}</div>
+        <h3 class="card-title">${curso.nome}</h3>
+        <div class="card-meta">
+          <span class="card-tag">${curso.categoria}</span>
+          <span class="card-year">${curso.ano}</span>
+          ${curso.horas ? `<span class="card-hours">${curso.horas}h</span>` : ''}
+        </div>
+      `;
+      cardsWrap.appendChild(card);
+    });
+
+    arquivo.appendChild(section);
+  });
+
+  document.getElementById('data-atual').textContent = new Date().toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' });
+
+})();
+</script>
+
+<style>
+
+  :root{
+    --bg: #1c1712;
+    --bg-alt: #241d16;
+    --paper: #efe7d8;
+    --paper-dim: #cfc6b4;
+    --ink: #211a12;
+    --accent-default: #c9a66b;
+    --line: rgba(239,231,216,0.14);
+  }
+
+  *{ box-sizing: border-box; }
+
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--paper);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .grain{
+    position: fixed; inset:0; pointer-events:none; z-index:0; opacity:0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position: relative;
+    padding: 6.5rem 1.5rem 4rem;
+    text-align: center;
+    border-bottom: 1px solid var(--line);
+    background:
+      radial-gradient(ellipse 700px 400px at 50% -10%, rgba(201,166,107,0.14), transparent 70%);
+  }
+  .hero-inner{ max-width: 720px; margin: 0 auto; }
+  .eyebrow{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent-default);
+    margin: 0 0 1.25rem;
+  }
+  .hero-title{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(2.2rem, 6vw, 3.6rem);
+    margin: 0 0 1rem;
+    letter-spacing: -0.01em;
+  }
+  .hero-sub{
+    color: var(--paper-dim);
+    font-size: 1.05rem;
+    max-width: 480px;
+    margin: 0 auto 2.5rem;
+  }
+  .stats{
+    display:flex; justify-content:center; gap: 2.5rem; flex-wrap: wrap;
+  }
+  .stat{ display:flex; flex-direction:column; align-items:center; }
+  .stat-num{
+    font-family:'Fraunces', serif; font-weight:600;
+    font-size: 1.8rem; color: var(--paper);
+  }
+  .stat-label{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--paper-dim); margin-top: 0.2rem;
+  }
+
+  /* ---------- INDEX NAV (catálogo) ---------- */
+  .index-nav{
+    display:flex; flex-wrap: wrap; gap: 0.6rem;
+    max-width: 900px; margin: -1.5rem auto 0; padding: 1rem 1.5rem 2rem;
+    justify-content:center;
+    position: relative; z-index: 1;
+  }
+  .index-link{
+    --accent: var(--accent-default);
+    display:flex; align-items:center; gap:0.5rem;
+    font-family:'JetBrains Mono', monospace; font-size: 0.78rem;
+    color: var(--paper-dim);
+    text-decoration:none;
+    border: 1px solid var(--line);
+    padding: 0.45rem 0.9rem 0.45rem 0.7rem;
+    border-radius: 999px;
+    transition: border-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+    background: var(--bg-alt);
+  }
+  .index-link:hover{
+    color: var(--paper);
+    border-color: var(--accent);
+    transform: translateY(-1px);
+  }
+  .index-dot{
+    width:7px; height:7px; border-radius:50%;
+    background: var(--accent);
+    flex-shrink:0;
+  }
+
+  /* ---------- ARQUIVO / GAVETAS ---------- */
+  main{ max-width: 900px; margin: 0 auto; padding: 1rem 1.5rem 4rem; position:relative; z-index:1; }
+
+  .drawer{
+    --accent: var(--accent-default);
+    margin-top: 3rem;
+    scroll-margin-top: 2rem;
+  }
+
+  .drawer-header{
+    display:flex; align-items:baseline; gap: 0.9rem;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 0.7rem;
+    margin-bottom: 1.4rem;
+  }
+  .drawer-tab{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 0.72rem; font-weight:500;
+    color: var(--ink);
+    background: var(--accent);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+  }
+  .drawer-title{
+    font-family:'Fraunces', serif; font-weight:600;
+    font-size: 1.5rem; margin:0; flex:1;
+  }
+  .drawer-count{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 0.75rem; color: var(--paper-dim);
+    white-space: nowrap;
+  }
+
+  .cards{
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 0.9rem;
+  }
+
+  .card{
+    --accent: inherit;
+    background: var(--bg-alt);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent, var(--accent-default));
+    border-radius: 6px;
+    padding: 1rem 1.1rem;
+    position: relative;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  .drawer .card{ border-left-color: var(--accent); }
+  .card:hover{ background: rgba(239,231,216,0.05); }
+
+  .card-code{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--paper-dim);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+  .card-title{
+    font-family:'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.98rem;
+    margin: 0 0 0.7rem;
+    color: var(--paper);
+    line-height: 1.35;
+  }
+  .card-meta{
+    display:flex; flex-wrap:wrap; gap: 0.5rem;
+    font-family:'JetBrains Mono', monospace; font-size: 0.7rem;
+  }
+  .card-tag{
+    color: var(--ink); background: var(--paper-dim);
+    padding: 0.15rem 0.5rem; border-radius: 999px;
+  }
+  .card-year, .card-hours{
+    color: var(--paper-dim);
+    padding: 0.15rem 0.2rem;
+  }
+
+  /* ---------- FOOTER ---------- */
+  .site-footer{
+    text-align:center; padding: 2.5rem 1.5rem 3rem;
+    color: var(--paper-dim);
+    font-family:'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    border-top: 1px solid var(--line);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .index-link{ transition:none; }
+  }
+
+  @media (max-width: 600px){
+    .hero{ padding: 4.5rem 1.2rem 3rem; }
+    .stats{ gap: 1.6rem; }
+  }
+</style>
+</body>
+</html>
