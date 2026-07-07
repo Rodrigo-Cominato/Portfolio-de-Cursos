@@ -24,9 +24,9 @@ const DADOS = [
       { nome: "Eficiência energética usando variação de velocidade em motores", 
        ano: "2025", 
        assuntos: [
-         "Princípios da Variação de Velocidade"
-         "Aplicações de Inversores de Frequência"
-         "Economia de Energia e Estudos de Caso"
+         "Princípios da Variação de Velocidade",
+         "Aplicações de Inversores de Frequência",
+         "Economia de Energia e Estudos de Caso",
        ], 
        certificado: "certificados/(2025) Schneider Electric -  Eficiência energética usando variação de velocidade em motores.pdf",
       },
