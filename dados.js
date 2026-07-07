@@ -28,7 +28,8 @@ const DADOS = [
          "Aplicações de Inversores de Frequência"
          "Economia de Energia e Estudos de Caso"
        ], 
-       certificado: "certificados/(2025) Schneider Electric -  Eficiência energética usando variação de velocidade em motores" },
+       certificado: "certificados/(2025) Schneider Electric -  Eficiência energética usando variação de velocidade em motores.pdf",
+      },
       { nome: "Energy Efficiency Fundamentals for Industrial Automation & Control Professionals", ano: "2025", assuntos: [], certificado: "" },
       { nome: "Medição e Benchmarking Energético", ano: "2025", assuntos: [], certificado: "" },
       { nome: "Motors: A Performance Opportunity Roadmap", ano: "2025", assuntos: [], certificado: "" },
