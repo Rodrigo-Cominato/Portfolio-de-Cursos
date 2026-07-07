@@ -19,12 +19,16 @@ const DADOS = [
           "Medição e Verificação",
           "Otimização do Consumo de Energia",
         ],
-        // Caminho ou link do certificado: pode ser um arquivo .pdf, uma
-        // imagem (.png/.jpg) dentro da pasta "certificados/", ou um link
-        // do Google Drive/Dropbox. Deixe "" se ainda não tiver.
         certificado: "certificados/(2025) Schneider Electric -  Comissionamento em prol da eficiência energética.pdf",
       },
-      { nome: "Eficiência energética usando variação de velocidade em motores", ano: "2025", assuntos: [], certificado: "" },
+      { nome: "Eficiência energética usando variação de velocidade em motores", 
+       ano: "2025", 
+       assuntos: [
+         "Princípios da Variação de Velocidade"
+         "Aplicações de Inversores de Frequência"
+         "Economia de Energia e Estudos de Caso"
+       ], 
+       certificado: "certificados/(2025) Schneider Electric -  Eficiência energética usando variação de velocidade em motores" },
       { nome: "Energy Efficiency Fundamentals for Industrial Automation & Control Professionals", ano: "2025", assuntos: [], certificado: "" },
       { nome: "Medição e Benchmarking Energético", ano: "2025", assuntos: [], certificado: "" },
       { nome: "Motors: A Performance Opportunity Roadmap", ano: "2025", assuntos: [], certificado: "" },
