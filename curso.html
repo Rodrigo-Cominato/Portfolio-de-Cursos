@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Detalhes do curso</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="dados.js"></script>
+</head>
+<body>
+
+<div class="grain"></div>
+
+<a href="index.html" class="back-link">← Voltar para o portfólio</a>
+
+<main id="conteudo" class="wrap"></main>
+
+<script>
+(function(){
+
+  const params = new URLSearchParams(window.location.search);
+  const i = parseInt(params.get('i'), 10);
+  const c = parseInt(params.get('c'), 10);
+  const conteudo = document.getElementById('conteudo');
+
+  const inst = DADOS[i];
+  const curso = inst ? inst.cursos[c] : null;
+
+  if (!inst || !curso) {
+    conteudo.innerHTML = `
+      <div class="not-found">
+        <h1>Curso não encontrado</h1>
+        <p>O link pode estar incompleto ou desatualizado.</p>
+        <a href="index.html" class="btn-voltar">Voltar para o portfólio</a>
+      </div>
+    `;
+    return;
+  }
+
+  document.title = curso.nome + ' — ' + inst.instituicao;
+  document.documentElement.style.setProperty('--accent', inst.cor);
+
+  const assuntos = Array.isArray(curso.assuntos) ? curso.assuntos.filter(Boolean) : [];
+  const assuntosHtml = assuntos.length
+    ? `<ul class="assuntos-list">${assuntos.map(a => `<li>${a}</li>`).join('')}</ul>`
+    : `<p class="empty-msg">A lista de assuntos abordados ainda não foi adicionada para este curso.</p>`;
+
+  function renderCertificado(url){
+    if (!url) {
+      return `<p class="empty-msg">O certificado deste curso ainda não foi adicionado.</p>`;
+    }
+    const lower = url.toLowerCase();
+    if (lower.endsWith('.pdf')) {
+      return `
+        <iframe src="${url}" class="cert-frame" title="Certificado"></iframe>
+        <a href="${url}" target="_blank" rel="noopener" class="cert-link">Abrir certificado em nova aba ↗</a>
+      `;
+    }
+    if (/\.(png|jpe?g|webp|gif)$/.test(lower)) {
+      return `<img src="${url}" class="cert-image" alt="Certificado de ${curso.nome}">`;
+    }
+    // link externo (Google Drive, Dropbox etc.)
+    return `<a href="${url}" target="_blank" rel="noopener" class="btn-cert">Ver certificado ↗</a>`;
+  }
+
+  conteudo.innerHTML = `
+    <p class="eyebrow" style="color:${inst.cor}">${inst.instituicao}</p>
+    <h1 class="titulo">${curso.nome}</h1>
+    <p class="ano">${curso.ano}</p>
+
+    <section class="bloco">
+      <h2 class="bloco-titulo">Assuntos abordados</h2>
+      ${assuntosHtml}
+    </section>
+
+    <section class="bloco">
+      <h2 class="bloco-titulo">Certificado</h2>
+      ${renderCertificado(curso.certificado)}
+    </section>
+  `;
+
+})();
+</script>
+
+<style>
+  :root{
+    --bg: #1c1712;
+    --bg-alt: #241d16;
+    --paper: #efe7d8;
+    --paper-dim: #cfc6b4;
+    --ink: #211a12;
+    --accent: #c9a66b;
+    --line: rgba(239,231,216,0.14);
+  }
+
+  *{ box-sizing: border-box; }
+
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--paper);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .grain{
+    position: fixed; inset:0; pointer-events:none; z-index:0; opacity:0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .back-link{
+    display:inline-block;
+    position: relative; z-index: 1;
+    margin: 1.5rem 1.5rem 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--paper-dim);
+    text-decoration: none;
+    border: 1px solid var(--line);
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  .back-link:hover{ color: var(--paper); border-color: var(--accent); }
+
+  .wrap{
+    position: relative; z-index: 1;
+    max-width: 720px;
+    margin: 2.5rem auto 5rem;
+    padding: 0 1.5rem;
+  }
+
+  .eyebrow{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin: 0 0 0.9rem;
+  }
+
+  .titulo{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(1.7rem, 4.5vw, 2.5rem);
+    margin: 0 0 0.6rem;
+    letter-spacing: -0.01em;
+  }
+
+  .ano{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--paper-dim);
+    margin: 0 0 2.5rem;
+  }
+
+  .bloco{ margin-bottom: 2.8rem; }
+
+  .bloco-titulo{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.15rem;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 0.6rem;
+    margin: 0 0 1.2rem;
+  }
+
+  .assuntos-list{
+    margin: 0; padding: 0 0 0 1.2rem;
+  }
+  .assuntos-list li{
+    margin-bottom: 0.55rem;
+    color: var(--paper);
+  }
+
+  .empty-msg{
+    color: var(--paper-dim);
+    font-style: italic;
+    font-size: 0.92rem;
+  }
+
+  .cert-frame{
+    width: 100%;
+    height: 70vh;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--bg-alt);
+    margin-bottom: 0.9rem;
+  }
+
+  .cert-image{
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    display: block;
+    margin-bottom: 0.9rem;
+  }
+
+  .cert-link, .btn-cert{
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--ink);
+    background: var(--accent);
+    text-decoration: none;
+    padding: 0.6rem 1.1rem;
+    border-radius: 999px;
+    font-weight: 500;
+  }
+
+  .not-found{
+    position: relative; z-index: 1;
+    max-width: 500px; margin: 6rem auto; padding: 0 1.5rem; text-align:center;
+  }
+  .not-found h1{ font-family:'Fraunces', serif; font-size: 1.8rem; }
+  .btn-voltar{
+    display:inline-block; margin-top: 1.2rem;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.8rem;
+    color: var(--ink); background: var(--accent);
+    text-decoration:none; padding: 0.6rem 1.1rem; border-radius: 999px;
+  }
+
+  @media (max-width: 600px){
+    .wrap{ margin-top: 1.5rem; }
+    .cert-frame{ height: 55vh; }
+  }
+</style>
+</body>
+</html>

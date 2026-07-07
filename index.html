@@ -7,109 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-
-  /* ============================================================
-     DADOS — edite aqui os seus cursos, instituições e cores
-     ============================================================ */
-
-</style>
-<script>
-  // ============================================================
-  // SEUS DADOS — edite este array para adicionar/remover cursos
-  // ============================================================
-  const DADOS = [
-    {
-      instituicao: "SCHNEIDER ELECTRIC",
-      cor: "#88e788", // verde claro
-      cursos: [
-        { nome: "Comissionamento em prol da eficiência energética", ano: "2025" },
-        { nome: "Eficiência energética usando variação de velocidade em motores", ano: "2025" },
-        { nome: "Energy Efficiency Fundamentals for Industrial Automation & Control Professionals", ano: "2025" },
-        { nome: "Medição e Benchmarking Energético", ano: "2025" },
-        { nome: "Motors: A Performance Opportunity Roadmap", ano: "2025" },
-      ]
-    },
-    {
-      instituicao: "SIEMENS",
-      cor: "#111184", // azul escuro
-      cursos: [
-        { nome: "AS-i e IO-Link", ano: "2024" },
-        { nome: "Comando e Proteção de Motores SMART", ano: "2024" },
-        { nome: "Relé de Interface", ano: "2024" },
-        { nome: "Relés e Contatores de Estado Sólido", ano: "2024" },
-        { nome: "Aplicações em Abastecimento de Hidrogênio", ano: "2025" },
-        { nome: "Chaves de Partida e Soft Starters", ano: "2025" },
-        { nome: "Correção de Fator de Potência Básico", ano: "2025" },
-        { nome: "Disjuntores Abertos 3WL", ano: "2025" },
-        { nome: "Dispositivos de Controles Industriais SIRIUS", ano: "2025" },
-        { nome: "Gerenciamento de Energia", ano: "2025" },
-        { nome: "Proteção Elétrica na Construção Civil", ano: "2025" },
-        { nome: "Segurança de Máquinas", ano: "2025" },
-        { nome: "SIMOCODE", ano: "2025" },
-      ]
-    },
-     {
-      instituicao: "DANFOSS",
-      cor: "#ED0000", // vermelho
-      cursos: [
-        { nome: "DD-G-ALL46. AC Drives", ano: "2025" },
-        { nome: "DD-G-ALL48 Best Practices in installing a drive", ano: "2025"  },
-        { nome: "DD-G-ALL58 Danfoss Drives Product Store Tutorials", ano: "2025" },
-        { nome: "DD-G-ALL47 Electronic Starter Introduction", ano: "2025" },
-        { nome: "DD-P-VLT68 VLT® FC 321 Automation Drive EZ Product Presentation", ano: "2025" },
-        { nome: "DD-P-VLT45 FC51 Drive Product Presentation", ano: "2025" },
-        { nome: "DD-P-VLT49 VLT FC102 Product Presentation", ano: "2025" },
-        { nome: "DD-P-VLT52 FC202 Aqua Drive Product Presentation", ano: "2025" },
-        { nome: "DD-P-VLT56 FC202 Aqua Drive Setup Video", ano: "2025" },
-        { nome: "DD-P-VLT47 FC280 Midi Drive Product Presentation", ano: "2025" },
-        { nome: "DD-P-VLT44 FC302 Automation Drive Product Presentation", ano: "2025" },
-        { nome: "DD-P-VLT57 FC302 Automation Drive Setup Videon", ano: "2025" },
-        { nome: "DD-P-FB6 Fieldbus Communication options overview", ano: "2025" },
-        { nome: "DD-T-39 Harmonics and Mitigation Introduction", ano: "2025" },
-        { nome: "DD-P-VLT59 Introduction to Condition Based Monitoring Video", ano: "2025" },
-        { nome: "DD-P-VLT58 Introduction to MCT10 functionality Video", ano: "2025" },
-        { nome: "DD-P-VAC53 Introduction to VACON Live", ano: "2025" },
-        { nome: "DD-T-42 Inverting DC to AC", ano: "2025" },
-        { nome: "DD-T-41 Long Motor Cables with Drives", ano: "2025" },
-        { nome: "DD-P-VLT63 MCT10 Parameter Handling Video", ano: "2025" },
-        { nome: "DD-P-VLT60 MCT10 Preventive Maintenance Wizard Video", ano: "2025" },
-        { nome: "DD-P-VLT61 MCT10 Timed Events Wizard Video", ano: "2025" },
-        { nome: "DD-T-34. Ohm's Law", ano: "2025" },
-        { nome: "DD-G-ALL49 Overiew of Software tools for connecting to Danfoss Drives", ano: "2025" },
-        { nome: "DD-T-35 NAM Proper VFD Motor Cable Selection", ano: "2025" },
-        { nome: "DD-P-FS7 Safety Options Overview", ano: "2025" },
-        { nome: "DD-T-40 Selecting input and output devices with Drives", ano: "2025" },
-        { nome: "DD-P-VAC54 VACON 100 Fluxo industrial e vídeo de configuração 100X", ano: "2025" },
-        { nome: "DD-P-VAC56 VACON 100 Technical Introduction", ano: "2025" },
-        { nome: "DD-P-VAC60 VACON NC Drive Basic Functionality Video", ano: "2025" },
-        { nome: "DDD-P-VAC43 VACON NXP Air Cooled Drives Presentation", ano: "2025" },
-        { nome: "DD-P-VAC39. VACON® 100 Product Presentation", ano: "2025" },
-        { nome: "DD-P-VLT64 VLT MCT10 Scope Function Introduction", ano: "2025" },
-      ]
-    },
-    {
-      instituicao: "WEG",
-      cor: "#00A8FF", // azul claro
-      cursos: [
-        { nome: "Acionamentos de Motores Elétricos", ano: "2025"  },
-        { nome: "Adequação de Máquinas e Equipamentos à NR12 e CLP de Segurança", ano: "2025"  },
-        { nome: "Características de Motores Elétricos industriais Trifásicos", ano: "2025"  },
-        { nome: "Controlador Programável PLC300", ano: "2025"  },
-        { nome: "instalação de Inversores de Frequência - A Distância", ano: "2025"  },
-        { nome: "Introdução à Geração de Energia Solar", ano: "2025"  },
-        { nome: "Inversores de Frequência", ano: "2025"  },
-        { nome: "Plataforma IoT WEegnology", ano: "2025"  },
-        { nome: "WCAM Basics", ano: "2025"  },
-        { nome: "Wegnology Edge Suite - SCADA", ano: "2025"  },
-      ]
-    },
-  ];
-
-  // Nome exibido no topo — altere para o seu nome
-  const NOME = "Rodrigo Cominato";
-  const SUBTITULO = "Relatório dos cursos que já realizei, organizado de acordo com as instituições";
-</script>
+<script src="dados.js"></script>
 </head>
 <body>
 
@@ -181,12 +79,16 @@
 
     const cardsWrap = section.querySelector('.cards');
     inst.cursos.forEach((curso, cIdx) => {
-      const card = document.createElement('article');
+      const card = document.createElement('a');
       card.className = 'card';
+      card.href = `curso.html?i=${instIdx}&c=${cIdx}`;
+      card.target = '_blank';
+      card.rel = 'noopener';
       card.innerHTML = `
         <h3 class="card-title">${curso.nome}</h3>
         <div class="card-meta">
           <span class="card-year">${curso.ano}</span>
+          <span class="card-cta">Ver detalhes ↗</span>
         </div>
       `;
       cardsWrap.appendChild(card);
@@ -336,16 +238,24 @@
 
   .card{
     --accent: inherit;
+    display: block;
     background: var(--bg-alt);
     border: 1px solid var(--line);
     border-left: 3px solid var(--accent, var(--accent-default));
     border-radius: 6px;
     padding: 1rem 1.1rem;
     position: relative;
-    transition: border-color 0.2s ease, background 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease, transform 0.15s ease;
   }
   .drawer .card{ border-left-color: var(--accent); }
-  .card:hover{ background: rgba(239,231,216,0.05); }
+  .card:hover{
+    background: rgba(239,231,216,0.06);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
 
   .card-title{
     font-family:'Inter', sans-serif;
@@ -356,13 +266,20 @@
     line-height: 1.35;
   }
   .card-meta{
-    display:flex; flex-wrap:wrap; gap: 0.5rem;
+    display:flex; flex-wrap:wrap; align-items:center; gap: 0.7rem;
     font-family:'JetBrains Mono', monospace; font-size: 0.7rem;
   }
   .card-year{
     color: var(--paper-dim);
     padding: 0.15rem 0.2rem;
   }
+  .card-cta{
+    margin-left: auto;
+    color: var(--accent-default);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  .card:hover .card-cta{ opacity: 1; }
 
   /* ---------- FOOTER ---------- */
   .site-footer{
@@ -374,7 +291,7 @@
   }
 
   @media (prefers-reduced-motion: reduce){
-    .index-link{ transition:none; }
+    .index-link, .card{ transition:none; }
   }
 
   @media (max-width: 600px){
