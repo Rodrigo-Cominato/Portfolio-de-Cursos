@@ -15,9 +15,9 @@ const DADOS = [
         ano: "2025",
         // Lista de assuntos abordados no curso (aparece na página de detalhes)
         assuntos: [
-          "Conceitos de eficiência energética",
-          "Etapas do processo de comissionamento",
-          "Boas práticas de medição em campo",
+          "Planejamento do Comissionamento",
+          "Medição e Verificação",
+          "Otimização do Consumo de Energia",
         ],
         // Caminho ou link do certificado: pode ser um arquivo .pdf, uma
         // imagem (.png/.jpg) dentro da pasta "certificados/", ou um link
