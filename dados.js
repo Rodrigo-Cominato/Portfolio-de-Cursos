@@ -22,7 +22,7 @@ const DADOS = [
         // Caminho ou link do certificado: pode ser um arquivo .pdf, uma
         // imagem (.png/.jpg) dentro da pasta "certificados/", ou um link
         // do Google Drive/Dropbox. Deixe "" se ainda não tiver.
-        certificado: "",
+        certificado: "(2025) Schneider Electric -  Comissionamento em prol da eficiência energética.pdf",
       },
       { nome: "Eficiência energética usando variação de velocidade em motores", ano: "2025", assuntos: [], certificado: "" },
       { nome: "Energy Efficiency Fundamentals for Industrial Automation & Control Professionals", ano: "2025", assuntos: [], certificado: "" },
