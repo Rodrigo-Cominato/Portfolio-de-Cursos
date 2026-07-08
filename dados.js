@@ -38,9 +38,25 @@ const DADOS = [
          "Automação Industrial Aplicada à Redução do Consumo de Energia",
          "Análise de ROI e Payback de Projetos",
        ], 
-       certificado: "certificados/(2025) Schneider Electric - Energy Efficiency Fundamentals for Industrial Automation & Control Professionals.pdf" },
-      { nome: "Medição e Benchmarking Energético", ano: "2025", assuntos: [], certificado: "" },
-      { nome: "Motors: A Performance Opportunity Roadmap", ano: "2025", assuntos: [], certificado: "" },
+       certificado: "certificados/(2025) Schneider Electric - Energy Efficiency Fundamentals for Industrial Automation & Control Professionals.pdf" 
+      },
+      { nome: "Medição e Benchmarking Energético", 
+       ano: "2025", 
+       assuntos: [
+         "Sistemas de Medição e Qualidade dos Dados",
+         "Avaliação de Indicadores de Consumo",
+         "Benchmarking e Melhores Práticas Industriais",
+       ], 
+       certificado: "certificados/(2025) Schneider Electric - Medição e Benchmarking Energético.pdf" 
+      },
+      { nome: "Motors: A Performance Opportunity Roadmap", 
+       ano: "2025", 
+       assuntos: [
+         "Eficiência e Desempenho de Motores Elétricos",
+         "Dimensionamento e Seleção de Motores",
+         "Otimização da Operação e do Consumo Energético",
+       ], 
+       certificado: "certificados/Schneider -  Motors_ A Performance Opportunity Roadmap.pdf" },
     ]
   },
   {
