@@ -30,7 +30,15 @@ const DADOS = [
        ], 
        certificado: "certificados/(2025) Schneider Electric -  Eficiência energética usando variação de velocidade em motores.pdf",
       },
-      { nome: "Energy Efficiency Fundamentals for Industrial Automation & Control Professionals", ano: "2025", assuntos: [], certificado: "" },
+      { nome: "Energy Efficiency Fundamentals for Industrial Automation & Control Professionals", 
+       ano: "2025", 
+       assuntos: [
+         "Motores Elétricos e Sistemas de Acionamento Eficientes",
+         "Monitoramento e Análise de Indicadores Energéticos",
+         "Automação Industrial Aplicada à Redução do Consumo de Energia",
+         "Análise de ROI e Payback de Projetos",
+       ], 
+       certificado: "certificados/(2025) Schneider Electric - Energy Efficiency Fundamentals for Industrial Automation & Control Professionals.pdf" },
       { nome: "Medição e Benchmarking Energético", ano: "2025", assuntos: [], certificado: "" },
       { nome: "Motors: A Performance Opportunity Roadmap", ano: "2025", assuntos: [], certificado: "" },
     ]
