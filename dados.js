@@ -56,7 +56,7 @@ const DADOS = [
          "Dimensionamento e Seleção de Motores",
          "Otimização da Operação e do Consumo Energético",
        ], 
-       certificado: "certificados/Schneider -  Motors_ A Performance Opportunity Roadmap.pdf" },
+       certificado: "certificados/(2025) Schneider -  Motors_ A Performance Opportunity Roadmap.pdf" },
     ]
   },
   {
@@ -121,20 +121,70 @@ const DADOS = [
     instituicao: "WEG",
     cor: "#00A8FF", // azul claro
     cursos: [
-      { nome: "Acionamentos de Motores Elétricos", ano: "2025", assuntos: [], certificado: "" },
-      { nome: "Adequação de Máquinas e Equipamentos à NR12 e CLP de Segurança", ano: "2025", assuntos: [], certificado: "" },
-      { nome: "Características de Motores Elétricos industriais Trifásicos", ano: "2025", assuntos: [], certificado: "" },
-      { nome: "Controlador Programável PLC300", ano: "2025", assuntos: [], certificado: "" },
-      { nome: "instalação de Inversores de Frequência - A Distância", ano: "2025", assuntos: [], certificado: "" },
-      { nome: "Introdução à Geração de Energia Solar", ano: "2025", assuntos: [], certificado: "" },
-      { nome: "Inversores de Frequência", ano: "2025", assuntos: [], certificado: "" },
-      { nome: "Plataforma IoT WEegnology", ano: "2025", assuntos: [], certificado: "" },
-      { nome: "WCAM Basics", ano: "2025", assuntos: [], certificado: "" },
-      { nome: "Wegnology Edge Suite - SCADA", ano: "2025", assuntos: [], certificado: "" },
+      { nome: "Acionamentos de Motores Elétricos", 
+       ano: "2025", 
+       assuntos: [
+         
+       ], 
+       certificado: "certificados/(2025) WEG - Acionamentos de Motores  Elétricos.pdf" },
+      { nome: "Adequação de Máquinas e Equipamentos à NR12 e CLP de Segurança", 
+       ano: "2025", 
+       assuntos: [
+         
+       ], 
+       certificado: "certificados/(2025) WEG - Adequação de Máquinas e Equipamentos à NR12 e CLP de Segurança (DT-09).pdf" },
+      { nome: "Características de Motores Elétricos industriais Trifásicos", 
+       ano: "2025", 
+       assuntos: [
+         
+       ], 
+       certificado: "certificados/(2025) WEG - Características de Motores Elétricos.pdf" },
+      { nome: "Controlador Programável PLC300", 
+       ano: "2025", 
+       assuntos: [
+         
+       ], 
+       certificado: "certificados/(2025) WEG - Controlador Programável PLC300.pdf" },
+      { nome: "instalação de Inversores de Frequência - A Distância", 
+       ano: "2025", 
+       assuntos: [
+         
+       ], 
+       certificado: "certificados/(2025) WEG - Instalação de Inversores de Frequência.pdf" },
+      { nome: "Introdução à Geração de Energia Solar", 
+       ano: "2025", 
+       assuntos: [
+         
+       ], 
+       certificado: "certificados/(2025) WEG - Introdução à Geração de Energia Solar.pdf" },
+      { nome: "Inversores de Frequência", 
+       ano: "2025", 
+       assuntos: [
+         
+       ], 
+       certificado: "certificados/(2025) WEG - Inversores de Frequência.pdf" },
+      { nome: "Plataforma IoT WEegnology", 
+       ano: "2025", 
+       assuntos: [
+         
+       ], 
+       certificado: "certificados/(2025) WEG - Plataforma IOT Wegnology.pdf" },
+      { nome: "WCAM Basics", 
+       ano: "2025", 
+       assuntos: [
+         
+       ], 
+       certificado: "certificados/(2025) WEG - Wcam Basics.pdf" },
+      { nome: "Wegnology Edge Suite - SCADA", 
+       ano: "2025", 
+       assuntos: [
+         
+       ], 
+       certificado: "certificados/(2025) WEG - Wegnology Edge Suite - Scada.pdf" },
     ]
   },
 ];
 
 // Nome exibido no topo — altere para o seu nome
 const NOME = "Rodrigo Cominato";
-const SUBTITULO = "Relatório dos cursos que já realizei, organizado de acordo com as instituições";
+const SUBTITULO = "Portfólio dos cursos que já realizei, organizado de acordo com as instituições";
