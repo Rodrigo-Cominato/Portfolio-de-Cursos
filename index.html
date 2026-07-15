@@ -15,6 +15,9 @@
 
 <header class="hero">
   <div class="hero-inner">
+    <div class="avatar-wrap" id="avatar-wrap">
+      <img id="avatar-img" class="avatar" alt="">
+    </div>
     <p class="eyebrow">Cursos Realizados</p>
     <h1 id="nome-titulo" class="hero-title"></h1>
     <p id="subtitulo" class="hero-sub"></p>
@@ -39,6 +42,16 @@
 
   document.getElementById('nome-titulo').textContent = NOME;
   document.getElementById('subtitulo').textContent = SUBTITULO;
+
+  const avatarImg = document.getElementById('avatar-img');
+  const avatarWrap = document.getElementById('avatar-wrap');
+  if (typeof FOTO !== 'undefined' && FOTO) {
+    avatarImg.src = FOTO;
+    avatarImg.alt = 'Foto de ' + NOME;
+    avatarImg.onerror = function(){ avatarWrap.style.display = 'none'; };
+  } else {
+    avatarWrap.style.display = 'none';
+  }
 
   const totalCursos = DADOS.reduce((acc, inst) => acc + inst.cursos.length, 0);
   const totalInstituicoes = DADOS.length;
@@ -105,13 +118,13 @@
 <style>
 
   :root{
-    --bg: #1c1712;
-    --bg-alt: #241d16;
+    --bg: #8a4b3c;
+    --bg-alt: #a35c49;
     --paper: #efe7d8;
-    --paper-dim: #cfc6b4;
+    --paper-dim: #f1d9cd;
     --ink: #211a12;
-    --accent-default: #c9a66b;
-    --line: rgba(239,231,216,0.14);
+    --accent-default: #e0b97e;
+    --line: rgba(239,231,216,0.16);
   }
 
   *{ box-sizing: border-box; }
@@ -140,6 +153,21 @@
       radial-gradient(ellipse 700px 400px at 50% -10%, rgba(201,166,107,0.14), transparent 70%);
   }
   .hero-inner{ max-width: 720px; margin: 0 auto; }
+
+  .avatar-wrap{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+  .avatar{
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent-default);
+    box-shadow: 0 0 0 6px rgba(224, 185, 126, 0.15), 0 12px 30px rgba(0,0,0,0.35);
+  }
+
   .eyebrow{
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.75rem;
