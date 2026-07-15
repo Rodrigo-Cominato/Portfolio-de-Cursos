@@ -10,19 +10,15 @@ const DADOS = [
     instituicao: "SCHNEIDER ELECTRIC",
     cor: "#88e788", // verde claro
     cursos: [
-      {
-        nome: "Comissionamento em prol da eficiência energética",
-        ano: "2025",
-        // Lista de assuntos abordados no curso (aparece na página de detalhes)
-        assuntos: [
+      {nome: "Comissionamento em prol da eficiência energética", ano: "2025",
+       assuntos: [
           "Planejamento do Comissionamento",
           "Medição e Verificação",
           "Otimização do Consumo de Energia",
         ],
         certificado: "certificados/(2025) Schneider Electric -  Comissionamento em prol da eficiência energética.pdf",
       },
-      { nome: "Eficiência energética usando variação de velocidade em motores", 
-       ano: "2025", 
+      { nome: "Eficiência energética usando variação de velocidade em motores", ano: "2025", 
        assuntos: [
          "Princípios da Variação de Velocidade",
          "Aplicações de Inversores de Frequência",
@@ -30,8 +26,7 @@ const DADOS = [
        ], 
        certificado: "certificados/(2025) Schneider Electric -  Eficiência energética usando variação de velocidade em motores.pdf",
       },
-      { nome: "Energy Efficiency Fundamentals for Industrial Automation & Control Professionals", 
-       ano: "2025", 
+      { nome: "Energy Efficiency Fundamentals for Industrial Automation & Control Professionals", ano: "2025", 
        assuntos: [
          "Motores Elétricos e Sistemas de Acionamento Eficientes",
          "Monitoramento e Análise de Indicadores Energéticos",
@@ -40,8 +35,7 @@ const DADOS = [
        ], 
        certificado: "certificados/(2025) Schneider Electric - Energy Efficiency Fundamentals for Industrial Automation & Control Professionals.pdf" 
       },
-      { nome: "Medição e Benchmarking Energético", 
-       ano: "2025", 
+      { nome: "Medição e Benchmarking Energético", ano: "2025", 
        assuntos: [
          "Sistemas de Medição e Qualidade dos Dados",
          "Avaliação de Indicadores de Consumo",
@@ -49,8 +43,7 @@ const DADOS = [
        ], 
        certificado: "certificados/(2025) Schneider Electric - Medição e Benchmarking Energético.pdf" 
       },
-      { nome: "Motors: A Performance Opportunity Roadmap", 
-       ano: "2025", 
+      { nome: "Motors: A Performance Opportunity Roadmap", ano: "2025", 
        assuntos: [
          "Eficiência e Desempenho de Motores Elétricos",
          "Dimensionamento e Seleção de Motores",
@@ -63,19 +56,19 @@ const DADOS = [
     instituicao: "SIEMENS",
     cor: "#111184", // azul escuro
     cursos: [
-      { nome: "AS-i e IO-Link", ano: "2024", assuntos: [], certificado: "" },
-      { nome: "Comando e Proteção de Motores SMART", ano: "2024", assuntos: [], certificado: "" },
-      { nome: "Relé de Interface", ano: "2024", assuntos: [], certificado: "" },
-      { nome: "Relés e Contatores de Estado Sólido", ano: "2024", assuntos: [], certificado: "" },
-      { nome: "Aplicações em Abastecimento de Hidrogênio", ano: "2025", assuntos: [], certificado: "" },
-      { nome: "Chaves de Partida e Soft Starters", ano: "2025", assuntos: [], certificado: "" },
-      { nome: "Correção de Fator de Potência Básico", ano: "2025", assuntos: [], certificado: "" },
-      { nome: "Disjuntores Abertos 3WL", ano: "2025", assuntos: [], certificado: "" },
-      { nome: "Dispositivos de Controles Industriais SIRIUS", ano: "2025", assuntos: [], certificado: "" },
-      { nome: "Gerenciamento de Energia", ano: "2025", assuntos: [], certificado: "" },
-      { nome: "Proteção Elétrica na Construção Civil", ano: "2025", assuntos: [], certificado: "" },
-      { nome: "Segurança de Máquinas", ano: "2025", assuntos: [], certificado: "" },
-      { nome: "SIMOCODE", ano: "2025", assuntos: [], certificado: "" },
+      { nome: "AS-i e IO-Link", ano: "2024", assuntos: [], certificado: "certificados/(2024) Siemens - AS-i e IO-Link.pdf" },
+      { nome: "Comando e Proteção de Motores SMART", ano: "2024", assuntos: [], certificado: "certificados/(2024) Siemens - Comando e Proteção de Motores SMART.pdf" },
+      { nome: "Relé de Interface", ano: "2024", assuntos: [], certificado: "certificados/(2024) Siemens - Relé de Interface.pdf" },
+      { nome: "Relés e Contatores de Estado Sólido", ano: "2024", assuntos: [], certificado: "certificados(2024) Siemens - Relés e Contatores de Estado Sólido.pdf" },
+      { nome: "Aplicações em Abastecimento de Hidrogênio", ano: "2025", assuntos: [], certificado: "certificados/(2025) Siemens - Aplicações em Abastecimento de Hidrogênio.png" },
+      { nome: "Chaves de Partida e Soft Starters", ano: "2025", assuntos: [], certificado: "certificados/(2025) Siemens - Chaves de Partida Suave_Soft Starters.pdf" },
+      { nome: "Correção de Fator de Potência Básico", ano: "2025", assuntos: [], certificado: "certificados/(2025) Siemens - Correção de Fator de Potência Básico.pdf" },
+      { nome: "Disjuntores Abertos 3WL", ano: "2025", assuntos: [], certificado: "certificados/(2025) Siemens - Disjuntores Abertos 3WL.pdf" },
+      { nome: "Dispositivos de Controles Industriais SIRIUS", ano: "2025", assuntos: [], certificado: "certificados/(2025) Siemens - Dispositivos de Controles Industriais SIRIUS Básico.pdf" },
+      { nome: "Gerenciamento de Energia", ano: "2025", assuntos: [], certificado: "certificados/(2025) Siemens - Gerenciamento de Energia.pdf" },
+      { nome: "Proteção Elétrica na Construção Civil", ano: "2025", assuntos: [], certificado: "certificados/(2025) Siemens - Proteção Elétrica na Construção Civil.pdf" },
+      { nome: "Segurança de Máquinas", ano: "2025", assuntos: [], certificado: "certificados/(2025) Siemens - Segurança de Máquinas .png" },
+      { nome: "SIMOCODE", ano: "2025", assuntos: [], certificado: "certificados/(2025) Siemens - SIMOCODE.png" },
     ]
   },
   {
