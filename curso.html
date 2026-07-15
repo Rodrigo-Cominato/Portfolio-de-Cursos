@@ -13,12 +13,26 @@
 
 <div class="grain"></div>
 
-<a href="index.html" class="back-link">← Voltar para o portfólio</a>
+<a href="index.html" class="back-link" id="voltar-link">← Voltar para o portfólio</a>
 
 <main id="conteudo" class="wrap"></main>
 
 <script>
 (function(){
+
+  // "Voltar" fecha esta aba (já que ela foi aberta a partir do portfólio
+  // principal em outra aba). Se o navegador não permitir fechar por script,
+  // cai no comportamento normal do link (navega para index.html nesta aba).
+  const voltarLink = document.getElementById('voltar-link');
+  voltarLink.addEventListener('click', function(e){
+    e.preventDefault();
+    window.close();
+    // se a aba continuar aberta depois de um instante, o navegador bloqueou
+    // o fechamento — nesse caso, navega normalmente para o portfólio.
+    setTimeout(function(){
+      window.location.href = 'index.html';
+    }, 300);
+  });
 
   const params = new URLSearchParams(window.location.search);
   const i = parseInt(params.get('i'), 10);
@@ -33,9 +47,14 @@
       <div class="not-found">
         <h1>Curso não encontrado</h1>
         <p>O link pode estar incompleto ou desatualizado.</p>
-        <a href="index.html" class="btn-voltar">Voltar para o portfólio</a>
+        <a href="index.html" class="btn-voltar" id="voltar-link-erro">Voltar para o portfólio</a>
       </div>
     `;
+    document.getElementById('voltar-link-erro').addEventListener('click', function(e){
+      e.preventDefault();
+      window.close();
+      setTimeout(function(){ window.location.href = 'index.html'; }, 300);
+    });
     return;
   }
 
