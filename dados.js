@@ -155,7 +155,7 @@ const DADOS = [
     instituicao: "DANFOSS",
     cor: "#ED0000", // vermelho
     cursos: [
-      { nome: "DD-G-ALL46. AC Drives", ano: "2025", assuntos: [], certificado: "certificados/(2025) Danfoss - AC Drives.pdf" },
+      { nome: "DD-G-ALL46. AC Drives", ano: "2025", assuntos: ["Princípios dos inversores de frequência", "Parametrização básica", "Aplicações industriais",], certificado: "certificados/(2025) Danfoss - AC Drives.pdf" },
       { nome: "DD-G-ALL48 Best Practices in installing a drive", ano: "2025", assuntos: [], certificado: "certificados/(2025) Danfoss - Best Practices in installing a drive.pdf" },
       { nome: "DD-G-ALL58 Danfoss Drives Product Store Tutorials", ano: "2025", assuntos: [], certificado: "certificados/(2025) Danfoss - Drives Product Store Tutorials.pdf" },
       { nome: "DD-G-ALL47 Electronic Starter Introduction", ano: "2025", assuntos: [], certificado: "certificados/(2025) Danfoss - Electronic Starter Introduction.pdf" },
