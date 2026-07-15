@@ -59,7 +59,7 @@ const DADOS = [
       { nome: "AS-i e IO-Link", ano: "2024", assuntos: [], certificado: "certificados/(2024) Siemens - AS-i e IO-Link.pdf" },
       { nome: "Comando e Proteção de Motores SMART", ano: "2024", assuntos: [], certificado: "certificados/(2024) Siemens - Comando e Proteção de Motores SMART.pdf" },
       { nome: "Relé de Interface", ano: "2024", assuntos: [], certificado: "certificados/(2024) Siemens - Relé de Interface.pdf" },
-      { nome: "Relés e Contatores de Estado Sólido", ano: "2024", assuntos: [], certificado: "certificados(2024) Siemens - Relés e Contatores de Estado Sólido.pdf" },
+      { nome: "Relés e Contatores de Estado Sólido", ano: "2024", assuntos: [], certificado: "certificados/(2024) Siemens - Relés e Contatores de Estado Sólido.pdf" },
       { nome: "Aplicações em Abastecimento de Hidrogênio", ano: "2025", assuntos: [], certificado: "certificados/(2025) Siemens - Aplicações em Abastecimento de Hidrogênio.png" },
       { nome: "Chaves de Partida e Soft Starters", ano: "2025", assuntos: [], certificado: "certificados/(2025) Siemens - Chaves de Partida Suave_Soft Starters.pdf" },
       { nome: "Correção de Fator de Potência Básico", ano: "2025", assuntos: [], certificado: "certificados/(2025) Siemens - Correção de Fator de Potência Básico.pdf" },
