@@ -13,6 +13,8 @@
 
 <div class="grain"></div>
 
+<button id="lang-toggle" class="lang-toggle"></button>
+
 <header class="hero">
   <div class="hero-inner">
     <div class="avatar-wrap" id="avatar-wrap">
@@ -30,7 +32,7 @@
 <main id="arquivo"></main>
 
 <footer class="site-footer">
-  <p>Portfólio atualizado em <span id="data-atual"></span></p>
+  <p><span id="footer-label">Portfólio atualizado em</span> <span id="data-atual"></span></p>
 </footer>
 
 <script>
@@ -40,8 +42,22 @@
   const indexNav = document.getElementById('index-nav');
   const statsEl = document.getElementById('stats');
 
+  const idioma = getIdioma();
+  const t = UI_TEXT[idioma];
+  document.documentElement.lang = t.htmlLang;
+
+  const langBtn = document.getElementById('lang-toggle');
+  langBtn.textContent = t.langBtn;
+  langBtn.title = t.langBtnTitle;
+  langBtn.addEventListener('click', function(){
+    setIdioma(idioma === 'en' ? 'pt' : 'en');
+    window.location.reload();
+  });
+
+  document.querySelector('.eyebrow').textContent = t.eyebrow;
   document.getElementById('nome-titulo').textContent = NOME;
-  document.getElementById('subtitulo').textContent = SUBTITULO;
+  document.getElementById('subtitulo').textContent = idioma === 'en' ? (typeof SUBTITULO_EN !== 'undefined' ? SUBTITULO_EN : SUBTITULO) : SUBTITULO;
+  document.getElementById('footer-label').textContent = t.portfolioAtualizado;
 
   const avatarImg = document.getElementById('avatar-img');
   const avatarWrap = document.getElementById('avatar-wrap');
@@ -57,8 +73,8 @@
   const totalInstituicoes = DADOS.length;
 
   statsEl.innerHTML = `
-    <div class="stat"><span class="stat-num">${totalCursos}</span><span class="stat-label">cursos</span></div>
-    <div class="stat"><span class="stat-num">${totalInstituicoes}</span><span class="stat-label">instituições</span></div>
+    <div class="stat"><span class="stat-num">${totalCursos}</span><span class="stat-label">${t.statCursos}</span></div>
+    <div class="stat"><span class="stat-num">${totalInstituicoes}</span><span class="stat-label">${t.statInstituicoes}</span></div>
   `;
 
   function slug(str){
@@ -85,7 +101,7 @@
     section.innerHTML = `
       <div class="drawer-header">
         <h2 class="drawer-title">${inst.instituicao}</h2>
-        <span class="drawer-count">${inst.cursos.length} curso${inst.cursos.length !== 1 ? 's' : ''}</span>
+        <span class="drawer-count">${inst.cursos.length} ${t.statCursos}</span>
       </div>
       <div class="cards"></div>
     `;
@@ -101,7 +117,7 @@
         <h3 class="card-title">${curso.nome}</h3>
         <div class="card-meta">
           <span class="card-year">${curso.ano}</span>
-          <span class="card-cta">Ver detalhes ↗</span>
+          <span class="card-cta">${t.verDetalhes}</span>
         </div>
       `;
       cardsWrap.appendChild(card);
@@ -110,7 +126,7 @@
     arquivo.appendChild(section);
   });
 
-  document.getElementById('data-atual').textContent = new Date().toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' });
+  document.getElementById('data-atual').textContent = new Date().toLocaleDateString(t.dateLocale, { month: 'long', year: 'numeric' });
 
 })();
 </script>
@@ -141,6 +157,28 @@
   .grain{
     position: fixed; inset:0; pointer-events:none; z-index:0; opacity:0.05;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .lang-toggle{
+    position: fixed;
+    top: 1.2rem;
+    right: 1.2rem;
+    z-index: 10;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: var(--paper);
+    background: var(--bg-alt);
+    border: 1px solid var(--line);
+    padding: 0.5rem 0.9rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, transform 0.15s ease;
+  }
+  .lang-toggle:hover{
+    border-color: var(--accent-default);
+    transform: translateY(-1px);
   }
 
   /* ---------- HERO ---------- */

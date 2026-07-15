@@ -13,17 +13,32 @@
 
 <div class="grain"></div>
 
-<a href="index.html" class="back-link" id="voltar-link">← Voltar para o portfólio</a>
+<button id="lang-toggle" class="lang-toggle"></button>
+
+<a href="index.html" class="back-link" id="voltar-link"></a>
 
 <main id="conteudo" class="wrap"></main>
 
 <script>
 (function(){
 
+  const idioma = getIdioma();
+  const t = UI_TEXT[idioma];
+  document.documentElement.lang = t.htmlLang;
+
+  const langBtn = document.getElementById('lang-toggle');
+  langBtn.textContent = t.langBtn;
+  langBtn.title = t.langBtnTitle;
+  langBtn.addEventListener('click', function(){
+    setIdioma(idioma === 'en' ? 'pt' : 'en');
+    window.location.reload();
+  });
+
   // "Voltar" fecha esta aba (já que ela foi aberta a partir do portfólio
   // principal em outra aba). Se o navegador não permitir fechar por script,
   // cai no comportamento normal do link (navega para index.html nesta aba).
   const voltarLink = document.getElementById('voltar-link');
+  voltarLink.textContent = t.voltarLink;
   voltarLink.addEventListener('click', function(e){
     e.preventDefault();
     window.close();
@@ -45,9 +60,9 @@
   if (!inst || !curso) {
     conteudo.innerHTML = `
       <div class="not-found">
-        <h1>Curso não encontrado</h1>
-        <p>O link pode estar incompleto ou desatualizado.</p>
-        <a href="index.html" class="btn-voltar" id="voltar-link-erro">Voltar para o portfólio</a>
+        <h1>${t.naoEncontradoTitulo}</h1>
+        <p>${t.naoEncontradoTexto}</p>
+        <a href="index.html" class="btn-voltar" id="voltar-link-erro">${t.voltarBtn}</a>
       </div>
     `;
     document.getElementById('voltar-link-erro').addEventListener('click', function(e){
@@ -64,24 +79,24 @@
   const assuntos = Array.isArray(curso.assuntos) ? curso.assuntos.filter(Boolean) : [];
   const assuntosHtml = assuntos.length
     ? `<ul class="assuntos-list">${assuntos.map(a => `<li>${a}</li>`).join('')}</ul>`
-    : `<p class="empty-msg">A lista de assuntos abordados ainda não foi adicionada para este curso.</p>`;
+    : `<p class="empty-msg">${t.assuntosVazio}</p>`;
 
   function renderCertificado(url){
     if (!url) {
-      return `<p class="empty-msg">O certificado deste curso ainda não foi adicionado.</p>`;
+      return `<p class="empty-msg">${t.certificadoVazio}</p>`;
     }
     const lower = url.toLowerCase();
     if (lower.endsWith('.pdf')) {
       return `
         <iframe src="${url}" class="cert-frame" title="Certificado"></iframe>
-        <a href="${url}" target="_blank" rel="noopener" class="cert-link">Abrir certificado em nova aba ↗</a>
+        <a href="${url}" target="_blank" rel="noopener" class="cert-link">${t.abrirNovaAba}</a>
       `;
     }
     if (/\.(png|jpe?g|webp|gif)$/.test(lower)) {
       return `<img src="${url}" class="cert-image" alt="Certificado de ${curso.nome}">`;
     }
     // link externo (Google Drive, Dropbox etc.)
-    return `<a href="${url}" target="_blank" rel="noopener" class="btn-cert">Ver certificado ↗</a>`;
+    return `<a href="${url}" target="_blank" rel="noopener" class="btn-cert">${t.verCertificado}</a>`;
   }
 
   conteudo.innerHTML = `
@@ -90,12 +105,12 @@
     <p class="ano">${curso.ano}</p>
 
     <section class="bloco">
-      <h2 class="bloco-titulo">Assuntos abordados</h2>
+      <h2 class="bloco-titulo">${t.assuntosTitulo}</h2>
       ${assuntosHtml}
     </section>
 
     <section class="bloco">
-      <h2 class="bloco-titulo">Certificado</h2>
+      <h2 class="bloco-titulo">${t.certificadoTitulo}</h2>
       ${renderCertificado(curso.certificado)}
     </section>
   `;
@@ -128,6 +143,28 @@
   .grain{
     position: fixed; inset:0; pointer-events:none; z-index:0; opacity:0.05;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .lang-toggle{
+    position: fixed;
+    top: 1.2rem;
+    right: 1.2rem;
+    z-index: 10;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: var(--paper);
+    background: var(--bg-alt);
+    border: 1px solid var(--line);
+    padding: 0.5rem 0.9rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, transform 0.15s ease;
+  }
+  .lang-toggle:hover{
+    border-color: var(--accent);
+    transform: translateY(-1px);
   }
 
   .back-link{

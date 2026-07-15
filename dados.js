@@ -89,8 +89,71 @@ const DADOS = [
 
 // Nome exibido no topo — altere para o seu nome
 const NOME = "Rodrigo Cominato";
-const SUBTITULO = "Portfólio dos cursos que já realizei, organizado de acordo com as instituições";
+const SUBTITULO = "Conhecimento só gera valor quando é colocado em prática. Este portfólio reúne os cursos e certificações que complementam minha experiência profissional e refletem meu compromisso com a atualização constante e a excelência técnica na engenharia.";
+
+// Versão em inglês do subtítulo (usada quando o site está no modo EN)
+const SUBTITULO_EN = "Knowledge only creates value when put into practice. This portfolio brings together the courses and certifications that complement my professional experience and reflect my commitment to continuous learning and technical excellence in engineering.";
 
 // Nome do arquivo da sua foto — coloque o arquivo na raiz do repositório
 // (do lado do index.html) e ajuste o nome aqui se for diferente
 const FOTO = "foto_rodrigo.png";
+
+// ============================================================
+// TEXTOS DA INTERFACE (PT / EN)
+// Isso controla os textos fixos do site (botões, títulos de seção,
+// mensagens). Os nomes dos cursos e os assuntos abordados continuam
+// só em português, já que vêm dos certificados originais.
+// ============================================================
+const UI_TEXT = {
+  pt: {
+    htmlLang: "pt-BR",
+    dateLocale: "pt-BR",
+    eyebrow: "Cursos Realizados",
+    statCursos: "cursos",
+    statInstituicoes: "instituições",
+    verDetalhes: "Ver detalhes ↗",
+    portfolioAtualizado: "Portfólio atualizado em",
+    voltarLink: "← Voltar para o portfólio",
+    voltarBtn: "Voltar para o portfólio",
+    naoEncontradoTitulo: "Curso não encontrado",
+    naoEncontradoTexto: "O link pode estar incompleto ou desatualizado.",
+    assuntosTitulo: "Assuntos abordados",
+    assuntosVazio: "A lista de assuntos abordados ainda não foi adicionada para este curso.",
+    certificadoTitulo: "Certificado",
+    certificadoVazio: "O certificado deste curso ainda não foi adicionado.",
+    abrirNovaAba: "Abrir certificado em nova aba ↗",
+    verCertificado: "Ver certificado ↗",
+    langBtn: "EN",
+    langBtnTitle: "Switch to English",
+  },
+  en: {
+    htmlLang: "en",
+    dateLocale: "en-US",
+    eyebrow: "Completed Courses",
+    statCursos: "courses",
+    statInstituicoes: "institutions",
+    verDetalhes: "View details ↗",
+    portfolioAtualizado: "Portfolio last updated in",
+    voltarLink: "← Back to portfolio",
+    voltarBtn: "Back to portfolio",
+    naoEncontradoTitulo: "Course not found",
+    naoEncontradoTexto: "The link may be incomplete or outdated.",
+    assuntosTitulo: "Topics covered",
+    assuntosVazio: "The list of topics covered hasn't been added for this course yet.",
+    certificadoTitulo: "Certificate",
+    certificadoVazio: "The certificate for this course hasn't been added yet.",
+    abrirNovaAba: "Open certificate in new tab ↗",
+    verCertificado: "View certificate ↗",
+    langBtn: "PT",
+    langBtnTitle: "Mudar para português",
+  },
+};
+
+// Guarda e recupera o idioma escolhido (compartilhado entre as páginas,
+// já que localStorage é o mesmo para todo o site)
+function getIdioma(){
+  return localStorage.getItem('idioma') === 'en' ? 'en' : 'pt';
+}
+function setIdioma(lang){
+  localStorage.setItem('idioma', lang);
+}
