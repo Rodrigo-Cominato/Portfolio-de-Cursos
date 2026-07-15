@@ -10,48 +10,11 @@ const DADOS = [
     instituicao: "SCHNEIDER ELECTRIC",
     cor: "#88e788", // verde claro
     cursos: [
-      {nome: "Comissionamento em prol da eficiência energética", ano: "2025",
-       assuntos: [
-          "Planejamento do Comissionamento",
-          "Medição e Verificação",
-          "Otimização do Consumo de Energia",
-        ],
-        certificado: "certificados/(2025) Schneider Electric -  Comissionamento em prol da eficiência energética.pdf",
-      },
-      { nome: "Eficiência energética usando variação de velocidade em motores", ano: "2025", 
-       assuntos: [
-         "Princípios da Variação de Velocidade",
-         "Aplicações de Inversores de Frequência",
-         "Economia de Energia e Estudos de Caso",
-       ], 
-       certificado: "certificados/(2025) Schneider Electric -  Eficiência energética usando variação de velocidade em motores.pdf",
-      },
-      { nome: "Energy Efficiency Fundamentals for Industrial Automation & Control Professionals", ano: "2025", 
-       assuntos: [
-         "Motores Elétricos e Sistemas de Acionamento Eficientes",
-         "Monitoramento e Análise de Indicadores Energéticos",
-         "Automação Industrial Aplicada à Redução do Consumo de Energia",
-         "Análise de ROI e Payback de Projetos",
-       ], 
-       certificado: "certificados/(2025) Schneider Electric - Energy Efficiency Fundamentals for Industrial Automation & Control Professionals.pdf" 
-      },
-      { nome: "Medição e Benchmarking Energético", ano: "2025", 
-       assuntos: [
-         "Sistemas de Medição e Qualidade dos Dados",
-         "Avaliação de Indicadores de Consumo",
-         "Benchmarking e Melhores Práticas Industriais",
-       ], 
-       certificado: "certificados/(2025) Schneider Electric - Medição e Benchmarking Energético.pdf" 
-      },
-      { nome: "Motors: A Performance Opportunity Roadmap", ano: "2025", 
-       assuntos: [
-         "Eficiência e Desempenho de Motores Elétricos",
-         "Dimensionamento e Seleção de Motores",
-         "Otimização da Operação e do Consumo Energético",
-       ], 
-       certificado: "certificados/(2025) Schneider -  Motors_ A Performance Opportunity Roadmap.pdf" },
-    ]
-  },
+      {nome: "Comissionamento em prol da eficiência energética", ano: "2025", assuntos: ["Planejamento do Comissionamento", "Medição e Verificação", "Otimização do Consumo de Energia",], certificado: "certificados/(2025) Schneider Electric -  Comissionamento em prol da eficiência energética.pdf",},
+      { nome: "Eficiência energética usando variação de velocidade em motores", ano: "2025", assuntos: ["Princípios da Variação de Velocidade", "Aplicações de Inversores de Frequência", "Economia de Energia e Estudos de Caso",], certificado: "certificados/(2025) Schneider Electric -  Eficiência energética usando variação de velocidade em motores.pdf",},
+      { nome: "Energy Efficiency Fundamentals for Industrial Automation & Control Professionals", ano: "2025", assuntos: ["Motores Elétricos e Sistemas de Acionamento Eficientes", "Monitoramento e Análise de Indicadores Energéticos", "Automação Industrial Aplicada à Redução do Consumo de Energia", "Análise de ROI e Payback de Projetos", ], certificado: "certificados/(2025) Schneider Electric - Energy Efficiency Fundamentals for Industrial Automation & Control Professionals.pdf" },
+      { nome: "Medição e Benchmarking Energético", ano: "2025", assuntos: ["Sistemas de Medição e Qualidade dos Dados", "Avaliação de Indicadores de Consumo", "Benchmarking e Melhores Práticas Industriais",], certificado: "certificados/(2025) Schneider Electric - Medição e Benchmarking Energético.pdf" },
+      { nome: "Motors: A Performance Opportunity Roadmap", ano: "2025", assuntos: ["Eficiência e Desempenho de Motores Elétricos", "Dimensionamento e Seleção de Motores", "Otimização da Operação e do Consumo Energético",], certificado: "certificados/(2025) Schneider -  Motors_ A Performance Opportunity Roadmap.pdf" },]},
   {
     instituicao: "SIEMENS",
     cor: "#111184", // azul escuro
