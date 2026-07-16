@@ -7,14 +7,19 @@
 
 const DADOS = [
   {
-    instituicao: "SCHNEIDER ELECTRIC",
-    cor: "#88e788", // verde claro
+    instituicao: "WEG",
+    cor: "#00A8FF", // azul claro
     cursos: [
-      { nome: "Comissionamento em prol da eficiência energética", ano: "2025", assuntos: ["Planejamento do Comissionamento", "Medição e Verificação", "Otimização do Consumo de Energia",], certificado: "certificados/(2025) Schneider Electric -  Comissionamento em prol da eficiência energética.pdf",},
-      { nome: "Eficiência energética usando variação de velocidade em motores", ano: "2025", assuntos: ["Princípios da Variação de Velocidade", "Aplicações de Inversores de Frequência", "Economia de Energia e Estudos de Caso",], certificado: "certificados/(2025) Schneider Electric -  Eficiência energética usando variação de velocidade em motores.pdf",},
-      { nome: "Energy Efficiency Fundamentals for Industrial Automation & Control Professionals", ano: "2025", assuntos: ["Motores Elétricos e Sistemas de Acionamento Eficientes", "Monitoramento e Análise de Indicadores Energéticos", "Automação Industrial Aplicada à Redução do Consumo de Energia", "Análise de ROI e Payback de Projetos", ], certificado: "certificados/(2025) Schneider Electric - Energy Efficiency Fundamentals for Industrial Automation & Control Professionals.pdf" },
-      { nome: "Medição e Benchmarking Energético", ano: "2025", assuntos: ["Sistemas de Medição e Qualidade dos Dados", "Avaliação de Indicadores de Consumo", "Benchmarking e Melhores Práticas Industriais",], certificado: "certificados/(2025) Schneider Electric - Medição e Benchmarking Energético.pdf" },
-      { nome: "Motors: A Performance Opportunity Roadmap", ano: "2025", assuntos: ["Eficiência e Desempenho de Motores Elétricos", "Dimensionamento e Seleção de Motores", "Otimização da Operação e do Consumo Energético",], certificado: "certificados/(2025) Schneider -  Motors_ A Performance Opportunity Roadmap.pdf" },]},
+      { nome: "Acionamentos de Motores Elétricos", ano: "2025", assuntos: ["Princípios de acionamento de motores elétricos", "Métodos de partida direta e indireta", "Dimensionamento de acionamento", "Proteção e comando de motores",], certificado: "certificados/(2025) WEG - Acionamentos de Motores  Elétricos.pdf" },
+      { nome: "Adequação de Máquinas e Equipamentos à NR12 e CLP de Segurança", ano: "2025", assuntos: ["Requisitos da NR-12", "Avaliação e redução de riscos", "Arquiteturas de segurança com CLPs Safety", "Configuração de funções de segurança", "Validação e documentação de sistemas de segurança",], certificado: "certificados/(2025) WEG - Adequação de Máquinas e Equipamentos à NR12 e CLP de Segurança (DT-09).pdf" },
+      { nome: "Características de Motores Elétricos industriais Trifásicos", ano: "2025", assuntos: ["Princípios de funcionamento dos motores trifásicos","Curvas de torque e rendimento","Classes de eficiência (IE2, IE3, IE4, IE5","Critérios de seleção e dimensionamento","Aplicações industriais",], certificado: "certificados/(2025) WEG - Características de Motores Elétricos.pdf" },
+      { nome: "Controlador Programável PLC300", ano: "2025", assuntos: ["Arquitetura e funcionamento do PLC300","Programação Ladder","Configuração de entradas e saídas","Temporizadores, contadores e blocos de função","Comunicação industrial e diagnóstico",], certificado: "certificados/(2025) WEG - Controlador Programável PLC300.pdf" },
+      { nome: "instalação de Inversores de Frequência - A Distância", ano: "2025", assuntos: ["Instalação elétrica de inversores","Parametrização inicial","Dimensionamento de cabos e proteções","Boas práticas de aterramento e EMC","Comissionamento e testes",], certificado: "certificados/(2025) WEG - Instalação de Inversores de Frequência.pdf" },
+      { nome: "Introdução à Geração de Energia Solar", ano: "2025", assuntos: ["Fundamentos da energia fotovoltaica","Componentes de um sistema solar","Dimensionamento básico","Inversores fotovoltaicos","Normas e segurança em instalações solares",], certificado: "certificados/(2025) WEG - Introdução à Geração de Energia Solar.pdf" },
+      { nome: "Inversores de Frequência", ano: "2025", assuntos: ["Princípios de funcionamento","Parametrização e configuração","Controle escalar e vetorial","Diagnóstico e solução de falhas",], certificado: "certificados/(2025) WEG - Inversores de Frequência.pdf" },
+      { nome: "Plataforma IoT WEegnology", ano: "2025", assuntos: ["Conceitos de Internet das Coisas (IoT)","Coleta e transmissão de dados industriais","Monitoramento remoto de ativos","Dashboards e análise de dados","Integração com sistemas industriais",        ], certificado: "certificados/(2025) WEG - Plataforma IOT Wegnology.pdf" },
+      { nome: "WCAM Basics", ano: "2025", assuntos: ["Introdução ao software WCAM",], certificado: "certificados/(2025) WEG - Wcam Basics.pdf" },
+      { nome: "Wegnology Edge Suite - SCADA", ano: "2025", assuntos: ["Fundamentos de sistemas SCADA","Supervisão e monitoramento de processos","Comunicação com CLPs e dispositivos industriais",], certificado: "certificados/(2025) WEG - Wegnology Edge Suite - Scada.pdf" },]},
   {
     instituicao: "SIEMENS",
     cor: "#111184", // azul escuro
@@ -68,23 +73,16 @@ const DADOS = [
       { nome: "DD-P-VAC60 VACON NC Drive Basic Functionality Video", ano: "2025", assuntos: ["Funções básicas","Operação do inversor",], certificado: "certificados/(2025) Danfoss - VACON NC Drive Basic Functionality.pdf" },
       { nome: "DDD-P-VAC43 VACON NXP Air Cooled Drives Presentation", ano: "2025", assuntos: ["Características do VACON NXP","Aplicações industriais",], certificado: "certificados/(2025) Danfoss - VACON NXP Air Cooled Drives.pdf" },
       { nome: "DD-P-VAC39. VACON® 100 Product Presentation", ano: "2025", assuntos: ["Controle de motores","Eficiência energética",], certificado: "certificados/(2025) Danfoss - VACON® 100 Product Presentation.pdf" },
-      { nome: "DD-P-VLT64 VLT MCT10 Scope Function Introduction", ano: "2025", assuntos: ["Análise de sinais","Diagnóstico de operação",], certificado: "certificados/(2025) Danfoss - VLT MCT10 Scope Function.pdf" },
-    ]
-  },
-  {
-    instituicao: "WEG",
-    cor: "#00A8FF", // azul claro
+      { nome: "DD-P-VLT64 VLT MCT10 Scope Function Introduction", ano: "2025", assuntos: ["Análise de sinais","Diagnóstico de operação",], certificado: "certificados/(2025) Danfoss - VLT MCT10 Scope Function.pdf" },]},
+    {
+    instituicao: "SCHNEIDER ELECTRIC",
+    cor: "#88e788", // verde claro
     cursos: [
-      { nome: "Acionamentos de Motores Elétricos", ano: "2025", assuntos: ["Princípios de acionamento de motores elétricos", "Métodos de partida direta e indireta", "Dimensionamento de acionamento", "Proteção e comando de motores",], certificado: "certificados/(2025) WEG - Acionamentos de Motores  Elétricos.pdf" },
-      { nome: "Adequação de Máquinas e Equipamentos à NR12 e CLP de Segurança", ano: "2025", assuntos: ["Requisitos da NR-12", "Avaliação e redução de riscos", "Arquiteturas de segurança com CLPs Safety", "Configuração de funções de segurança", "Validação e documentação de sistemas de segurança",], certificado: "certificados/(2025) WEG - Adequação de Máquinas e Equipamentos à NR12 e CLP de Segurança (DT-09).pdf" },
-      { nome: "Características de Motores Elétricos industriais Trifásicos", ano: "2025", assuntos: ["Princípios de funcionamento dos motores trifásicos","Curvas de torque e rendimento","Classes de eficiência (IE2, IE3, IE4, IE5","Critérios de seleção e dimensionamento","Aplicações industriais",], certificado: "certificados/(2025) WEG - Características de Motores Elétricos.pdf" },
-      { nome: "Controlador Programável PLC300", ano: "2025", assuntos: ["Arquitetura e funcionamento do PLC300","Programação Ladder","Configuração de entradas e saídas","Temporizadores, contadores e blocos de função","Comunicação industrial e diagnóstico",], certificado: "certificados/(2025) WEG - Controlador Programável PLC300.pdf" },
-      { nome: "instalação de Inversores de Frequência - A Distância", ano: "2025", assuntos: ["Instalação elétrica de inversores","Parametrização inicial","Dimensionamento de cabos e proteções","Boas práticas de aterramento e EMC","Comissionamento e testes",], certificado: "certificados/(2025) WEG - Instalação de Inversores de Frequência.pdf" },
-      { nome: "Introdução à Geração de Energia Solar", ano: "2025", assuntos: ["Fundamentos da energia fotovoltaica","Componentes de um sistema solar","Dimensionamento básico","Inversores fotovoltaicos","Normas e segurança em instalações solares",], certificado: "certificados/(2025) WEG - Introdução à Geração de Energia Solar.pdf" },
-      { nome: "Inversores de Frequência", ano: "2025", assuntos: ["Princípios de funcionamento","Parametrização e configuração","Controle escalar e vetorial","Diagnóstico e solução de falhas",], certificado: "certificados/(2025) WEG - Inversores de Frequência.pdf" },
-      { nome: "Plataforma IoT WEegnology", ano: "2025", assuntos: ["Conceitos de Internet das Coisas (IoT)","Coleta e transmissão de dados industriais","Monitoramento remoto de ativos","Dashboards e análise de dados","Integração com sistemas industriais",        ], certificado: "certificados/(2025) WEG - Plataforma IOT Wegnology.pdf" },
-      { nome: "WCAM Basics", ano: "2025", assuntos: ["Introdução ao software WCAM",], certificado: "certificados/(2025) WEG - Wcam Basics.pdf" },
-      { nome: "Wegnology Edge Suite - SCADA", ano: "2025", assuntos: ["Fundamentos de sistemas SCADA","Supervisão e monitoramento de processos","Comunicação com CLPs e dispositivos industriais",], certificado: "certificados/(2025) WEG - Wegnology Edge Suite - Scada.pdf" },]},
+      { nome: "Comissionamento em prol da eficiência energética", ano: "2025", assuntos: ["Planejamento do Comissionamento", "Medição e Verificação", "Otimização do Consumo de Energia",], certificado: "certificados/(2025) Schneider Electric -  Comissionamento em prol da eficiência energética.pdf",},
+      { nome: "Eficiência energética usando variação de velocidade em motores", ano: "2025", assuntos: ["Princípios da Variação de Velocidade", "Aplicações de Inversores de Frequência", "Economia de Energia e Estudos de Caso",], certificado: "certificados/(2025) Schneider Electric -  Eficiência energética usando variação de velocidade em motores.pdf",},
+      { nome: "Energy Efficiency Fundamentals for Industrial Automation & Control Professionals", ano: "2025", assuntos: ["Motores Elétricos e Sistemas de Acionamento Eficientes", "Monitoramento e Análise de Indicadores Energéticos", "Automação Industrial Aplicada à Redução do Consumo de Energia", "Análise de ROI e Payback de Projetos", ], certificado: "certificados/(2025) Schneider Electric - Energy Efficiency Fundamentals for Industrial Automation & Control Professionals.pdf" },
+      { nome: "Medição e Benchmarking Energético", ano: "2025", assuntos: ["Sistemas de Medição e Qualidade dos Dados", "Avaliação de Indicadores de Consumo", "Benchmarking e Melhores Práticas Industriais",], certificado: "certificados/(2025) Schneider Electric - Medição e Benchmarking Energético.pdf" },
+      { nome: "Motors: A Performance Opportunity Roadmap", ano: "2025", assuntos: ["Eficiência e Desempenho de Motores Elétricos", "Dimensionamento e Seleção de Motores", "Otimização da Operação e do Consumo Energético",], certificado: "certificados/(2025) Schneider -  Motors_ A Performance Opportunity Roadmap.pdf" },]},
 ];
 
 // Nome exibido no topo — altere para o seu nome
