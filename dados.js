@@ -10,7 +10,7 @@ const DADOS = [
   instituicao: "SENAI",
     cor: "#111184", // azul escuro
     cursos: [
-      { nome: "Técnico em Automação Industrial", ano: "2021", assuntos: ["Fundamentos da Comunicação", "Fundamentos da Eletrotécnica", "Fundamentos da Mecânica","Acionamento de Dispositivos Atuadores","Processamentos de Sinais","Gestão da Manutenção","Implementação de Equipamentos e Dispositivos","Instrumentação e Controle","Manutenção de Equipamentos e Dispositivos","Desenvolvimento de Sistemas de Controle","Sistemas Lógicos Programáveis","Técnicas de Controle",], certificado: "certificados/(2021) SENAI Técnico em Automação Industrial.pdf",},
+      { nome: "Técnico em Automação Industrial", ano: "2021", assuntos: ["Fundamentos da Comunicação", "Fundamentos da Eletrotécnica", "Fundamentos da Mecânica","Acionamento de Dispositivos Atuadores","Processamentos de Sinais","Gestão da Manutenção","Implementação de Equipamentos e Dispositivos","Instrumentação e Controle","Manutenção de Equipamentos e Dispositivos","Desenvolvimento de Sistemas de Controle","Sistemas Lógicos Programáveis","Técnicas de Controle",], certificado: "certificados/(2021) SENAI Técnico em Automação Industrial.pdf" },
       { nome: "Ferramentas Google", ano: "2023", assuntos: ["Ferramentas de Comunicação e Organização", "Ferramentas de Compartilhamento de Arquivos e Edição de Texto",], certificado: "certificados/(2023) Ferramentas Google.pdf" },]},
   {
     instituicao: "WEG",
