@@ -1,11 +1,17 @@
-// ============================================================
+// ============================================================ 
 // SEUS DADOS — edite este arquivo para adicionar/remover cursos,
 // instituições, assuntos abordados e certificados.
 // Este arquivo é usado tanto pela página principal (index.html)
 // quanto pela página de detalhes de cada curso (curso.html).
-// ============================================================
+// ============================================================ 
 
 const DADOS = [
+  {  
+  instituicao: "SENAI",
+    cor: "#111184", // azul escuro
+    cursos: [
+      { nome: "Técnico em Automação Industrial", ano: "2021", assuntos: ["Fundamentos da Comunicação", "Fundamentos da Eletrotécnica", "Fundamentos da Mecânica","Acionamento de Dispositivos Atuadores","Processamentos de Sinais","Gestão da Manutenção","Implementação de Equipamentos e Dispositivos","Instrumentação e Controle","Manutenção de Equipamentos e Dispositivos","Desenvolvimento de Sistemas de Controle","Sistemas Lógicos Programáveis","Técnicas de Controle",], certificado: "certificados/(2021) SENAI Técnico em Automação Industrial.pdf",},
+      { nome: "Ferramentas Google", ano: "2023", assuntos: ["Ferramentas de Comunicação e Organização", "Ferramentas de Compartilhamento de Arquivos e Edição de Texto",], certificado: "certificados/(2023) Ferramentas Google.pdf" },]},
   {
     instituicao: "WEG",
     cor: "#00A8FF", // azul claro
@@ -22,7 +28,7 @@ const DADOS = [
       { nome: "Wegnology Edge Suite - SCADA", ano: "2025", assuntos: ["Fundamentos de sistemas SCADA","Supervisão e monitoramento de processos","Comunicação com CLPs e dispositivos industriais",], certificado: "certificados/(2025) WEG - Wegnology Edge Suite - Scada.pdf" },]},
   {
     instituicao: "SIEMENS",
-    cor: "#111184", // azul escuro
+    cor: "#3DCF96", // verde agua
     cursos: [
       { nome: "AS-i e IO-Link", ano: "2024", assuntos: ["Fundamentos do AS-i e IO-Link","Arquitetura e topologia da rede","Parametrização de dispositivos","Diagnóstico e manutenção",], certificado: "certificados/(2024) Siemens - AS-i e IO-Link.pdf" },
       { nome: "Comando e Proteção de Motores SMART", ano: "2024", assuntos: ["Princípios de acionamento de motores","Dispositivos inteligentes de proteção","Parametrização e monitoramento","Diagnóstico de falhas","Comunicação industrial e integração ao CLP",], certificado: "certificados/(2024) Siemens - Comando e Proteção de Motores SMART.pdf" },
