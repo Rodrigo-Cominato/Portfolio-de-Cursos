@@ -19,7 +19,7 @@ const DADOS = [
         ano: "2021",
         assuntos_pt: ["Artes", "Biologia", "Educação Física", "Filosofia", "Física", "Geografia", "História", "Língua Estrangeira - Espanhol", "Língua Portuguesa e Literatura", "Matemática", "Química", "Sociologia"],
         assuntos_en: ["Arts","Biology","Physical Education","Philosophy","Physics","Geography","History","Foreign Language - Spanish","Portuguese Language and Literature","Mathematics","Chemistry","Sociology"],
-        certificado: "certificados/(2021) SENAI Técnico em Automação Industrial.PDF",
+        certificado: "certificados/(2021) SENAI Ensino Médio.pdf",
       },
       {
         nome_pt: "Técnico em Automação Industrial",
