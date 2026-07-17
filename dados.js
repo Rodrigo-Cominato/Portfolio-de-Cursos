@@ -543,6 +543,37 @@ const DADOS = [
       },
     ]
   },
+  {
+    instituicao: "OUTROS",
+    cor: "#E8A33D", // âmbar
+    cursos: [
+      {
+        nome_pt: "Ensino Fundamental",
+        nome_en: "Elementary and Middle School Education",
+        ano: "",
+        // Adicione aqui o que foi abordado (opcional)
+        assuntos_pt: [],
+        assuntos_en: [],
+        certificado: "",
+      },
+      {
+        nome_pt: "Faixa Preta de Karatê",
+        nome_en: "Karate Black Belt",
+        ano: "",
+        assuntos_pt: [],
+        assuntos_en: [],
+        certificado: "",
+      },
+      {
+        nome_pt: "Curso de Mergulho",
+        nome_en: "Diving Course",
+        ano: "",
+        assuntos_pt: [],
+        assuntos_en: [],
+        certificado: "",
+      },
+    ]
+  },
 ];
 
 // Nome exibido no topo — altere para o seu nome
