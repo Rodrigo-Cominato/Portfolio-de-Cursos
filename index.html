@@ -70,11 +70,9 @@
   }
 
   const totalCursos = DADOS.reduce((acc, inst) => acc + inst.cursos.length, 0);
-  const totalInstituicoes = DADOS.length;
 
   statsEl.innerHTML = `
     <div class="stat"><span class="stat-num">${totalCursos}</span><span class="stat-label">${t.statCursos}</span></div>
-    <div class="stat"><span class="stat-num">${totalInstituicoes}</span><span class="stat-label">${t.statInstituicoes}</span></div>
   `;
 
   function slug(str){
