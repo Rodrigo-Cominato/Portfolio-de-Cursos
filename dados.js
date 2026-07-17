@@ -14,6 +14,14 @@ const DADOS = [
     cor: "#111184", // azul escuro
     cursos: [
       {
+        nome_pt: "Ensino Médio",
+        nome_en: "High School",
+        ano: "2021",
+        assuntos_pt: ["Artes", "Biologia", "Educação Física", "Filosofia", "Física", "Geografia", "História", "Língua Estrangeira - Espanhol", "Língua Portuguesa e Literatura", "Matemática", "Química", "Sociologia"],
+        assuntos_en: ["Arts","Biology","Physical Education","Philosophy","Physics","Geography","History","Foreign Language - English"],
+        certificado: "certificados/(2021) SENAI Técnico em Automação Industrial.PDF",
+      },
+      {
         nome_pt: "Técnico em Automação Industrial",
         nome_en: "Technical Diploma in Industrial Automation",
         ano: "2021",
