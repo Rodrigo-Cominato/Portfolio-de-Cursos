@@ -73,10 +73,10 @@
     return;
   }
 
-  document.title = curso.nome + ' — ' + inst.instituicao;
+  document.title = nomeCurso(curso, idioma) + ' — ' + inst.instituicao;
   document.documentElement.style.setProperty('--accent', inst.cor);
 
-  const assuntos = Array.isArray(curso.assuntos) ? curso.assuntos.filter(Boolean) : [];
+  const assuntos = assuntosCurso(curso, idioma);
   const assuntosHtml = assuntos.length
     ? `<ul class="assuntos-list">${assuntos.map(a => `<li>${a}</li>`).join('')}</ul>`
     : `<p class="empty-msg">${t.assuntosVazio}</p>`;
@@ -93,7 +93,7 @@
       `;
     }
     if (/\.(png|jpe?g|webp|gif)$/.test(lower)) {
-      return `<img src="${url}" class="cert-image" alt="Certificado de ${curso.nome}">`;
+      return `<img src="${url}" class="cert-image" alt="Certificado de ${nomeCurso(curso, idioma)}">`;
     }
     // link externo (Google Drive, Dropbox etc.)
     return `<a href="${url}" target="_blank" rel="noopener" class="btn-cert">${t.verCertificado}</a>`;
@@ -101,7 +101,7 @@
 
   conteudo.innerHTML = `
     <p class="eyebrow" style="color:${inst.cor}">${inst.instituicao}</p>
-    <h1 class="titulo">${curso.nome}</h1>
+    <h1 class="titulo">${nomeCurso(curso, idioma)}</h1>
     <p class="ano">${curso.ano}</p>
 
     <section class="bloco">
