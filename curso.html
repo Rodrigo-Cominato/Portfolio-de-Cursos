@@ -102,6 +102,7 @@
   conteudo.innerHTML = `
     <p class="eyebrow" style="color:${inst.cor}">${inst.instituicao}</p>
     <h1 class="titulo">${nomeCurso(curso, idioma)}</h1>
+    <div class="ornament" style="--accent-ornament:${inst.cor}" aria-hidden="true"><span></span><i></i><span></span></div>
     <p class="ano">${curso.ano}</p>
 
     <section class="bloco">
@@ -191,44 +192,84 @@
 
   .eyebrow{
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.78rem;
-    letter-spacing: 0.14em;
+    font-size: 0.7rem;
+    letter-spacing: 0.24em;
     text-transform: uppercase;
-    margin: 0 0 0.9rem;
+    margin: 0 0 0.7rem;
   }
 
   .titulo{
     font-family: 'Fraunces', serif;
     font-weight: 600;
     font-size: clamp(1.7rem, 4.5vw, 2.5rem);
-    margin: 0 0 0.6rem;
-    letter-spacing: -0.01em;
+    margin: 0;
+    letter-spacing: -0.015em;
+  }
+
+  .ornament{
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    width: 140px;
+    margin: 1.3rem 0 1.5rem;
+  }
+  .ornament span{
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+  .ornament i{
+    width: 5px;
+    height: 5px;
+    background: var(--accent-ornament, var(--accent));
+    transform: rotate(45deg);
+    flex-shrink: 0;
   }
 
   .ano{
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.85rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
     color: var(--paper-dim);
-    margin: 0 0 2.5rem;
+    margin: 0 0 2.8rem;
   }
 
-  .bloco{ margin-bottom: 2.8rem; }
+  .bloco{
+    margin-bottom: 2.8rem;
+    padding-top: 1.8rem;
+    border-top: 1px solid var(--line);
+  }
+  .bloco:first-of-type{
+    padding-top: 0;
+    border-top: none;
+  }
 
   .bloco-titulo{
     font-family: 'Fraunces', serif;
     font-weight: 600;
-    font-size: 1.15rem;
-    border-bottom: 2px solid var(--accent);
-    padding-bottom: 0.6rem;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--accent);
+    padding-bottom: 0.5rem;
     margin: 0 0 1.2rem;
   }
 
   .assuntos-list{
-    margin: 0; padding: 0 0 0 1.2rem;
+    margin: 0; padding: 0; list-style: none;
   }
   .assuntos-list li{
-    margin-bottom: 0.55rem;
+    margin-bottom: 0.7rem;
+    padding-left: 1.4rem;
+    position: relative;
     color: var(--paper);
+    line-height: 1.5;
+  }
+  .assuntos-list li::before{
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    opacity: 0.8;
   }
 
   .empty-msg{
@@ -241,14 +282,14 @@
     width: 100%;
     height: 70vh;
     border: 1px solid var(--line);
-    border-radius: 8px;
+    border-radius: 3px;
     background: var(--bg-alt);
     margin-bottom: 0.9rem;
   }
 
   .cert-image{
     width: 100%;
-    border-radius: 8px;
+    border-radius: 3px;
     border: 1px solid var(--line);
     display: block;
     margin-bottom: 0.9rem;
@@ -257,12 +298,13 @@
   .cert-link, .btn-cert{
     display: inline-block;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.8rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
     color: #ffffff;
     background: var(--accent);
     text-decoration: none;
-    padding: 0.6rem 1.1rem;
-    border-radius: 999px;
+    padding: 0.65rem 1.2rem;
+    border-radius: 2px;
     font-weight: 500;
   }
 
@@ -273,9 +315,9 @@
   .not-found h1{ font-family:'Fraunces', serif; font-size: 1.8rem; }
   .btn-voltar{
     display:inline-block; margin-top: 1.2rem;
-    font-family: 'JetBrains Mono', monospace; font-size: 0.8rem;
-    color: var(--ink); background: var(--accent);
-    text-decoration:none; padding: 0.6rem 1.1rem; border-radius: 999px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; letter-spacing: 0.05em;
+    color: #ffffff; background: var(--accent);
+    text-decoration:none; padding: 0.65rem 1.2rem; border-radius: 2px;
   }
 
   @media (max-width: 600px){

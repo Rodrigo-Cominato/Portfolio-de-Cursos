@@ -22,6 +22,7 @@
     </div>
     <p class="eyebrow">Cursos Realizados</p>
     <h1 id="nome-titulo" class="hero-title"></h1>
+    <div class="ornament" aria-hidden="true"><span></span><i></i><span></span></div>
     <p id="subtitulo" class="hero-sub"></p>
     <div class="stats" id="stats"></div>
   </div>
@@ -79,6 +80,13 @@
     return str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-');
   }
 
+  function romano(num){
+    const valores = [[10,'X'],[9,'IX'],[5,'V'],[4,'IV'],[1,'I']];
+    let n = num, out = '';
+    for (const [v, s] of valores) { while (n >= v) { out += s; n -= v; } }
+    return out;
+  }
+
   DADOS.forEach((inst, instIdx) => {
     const id = slug(inst.instituicao);
 
@@ -98,6 +106,7 @@
 
     section.innerHTML = `
       <div class="drawer-header">
+        <span class="drawer-index">${romano(instIdx + 1)}</span>
         <h2 class="drawer-title">${inst.instituicao}</h2>
         <span class="drawer-count">${inst.cursos.length} ${t.statCursos}</span>
       </div>
@@ -182,7 +191,7 @@
   /* ---------- HERO ---------- */
   .hero{
     position: relative;
-    padding: 6.5rem 1.5rem 4rem;
+    padding: 7.5rem 1.5rem 4.5rem;
     text-align: center;
     border-bottom: 1px solid var(--line);
     background:
@@ -196,75 +205,99 @@
     margin-bottom: 1.5rem;
   }
   .avatar{
-    width: 128px;
-    height: 128px;
+    width: 116px;
+    height: 116px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid var(--accent-default);
-    box-shadow: 0 0 0 6px rgba(224, 185, 126, 0.15), 0 12px 30px rgba(0,0,0,0.35);
+    border: 1px solid var(--accent-default);
+    padding: 4px;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.3);
   }
 
   .eyebrow{
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.75rem;
-    letter-spacing: 0.18em;
+    font-size: 0.7rem;
+    letter-spacing: 0.28em;
     text-transform: uppercase;
     color: var(--accent-default);
-    margin: 0 0 1.25rem;
+    margin: 0 0 1.4rem;
   }
   .hero-title{
     font-family: 'Fraunces', serif;
     font-weight: 600;
     font-size: clamp(2.2rem, 6vw, 3.6rem);
-    margin: 0 0 1rem;
-    letter-spacing: -0.01em;
+    margin: 0;
+    letter-spacing: -0.015em;
+  }
+  .ornament{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+    width: 200px;
+    margin: 1.6rem auto 1.8rem;
+  }
+  .ornament span{
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+  .ornament i{
+    width: 5px;
+    height: 5px;
+    background: var(--accent-default);
+    transform: rotate(45deg);
+    flex-shrink: 0;
   }
   .hero-sub{
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
     color: var(--paper-dim);
-    font-size: 1.05rem;
-    max-width: 480px;
-    margin: 0 auto 2.5rem;
+    font-size: 1.12rem;
+    line-height: 1.65;
+    max-width: 460px;
+    margin: 0 auto 2.8rem;
   }
   .stats{
-    display:flex; justify-content:center; gap: 2.5rem; flex-wrap: wrap;
+    display:flex; justify-content:center; align-items:center; gap: 2.2rem; flex-wrap: wrap;
   }
   .stat{ display:flex; flex-direction:column; align-items:center; }
   .stat-num{
     font-family:'Fraunces', serif; font-weight:600;
-    font-size: 1.8rem; color: var(--paper);
+    font-size: 2rem; color: var(--paper);
+    line-height: 1;
   }
   .stat-label{
     font-family:'JetBrains Mono', monospace;
-    font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
-    color: var(--paper-dim); margin-top: 0.2rem;
+    font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--paper-dim); margin-top: 0.4rem;
   }
 
   /* ---------- INDEX NAV (catálogo) ---------- */
   .index-nav{
-    display:flex; flex-wrap: wrap; gap: 0.6rem;
-    max-width: 900px; margin: -1.5rem auto 0; padding: 1rem 1.5rem 2rem;
+    display:flex; flex-wrap: wrap; gap: 0.4rem 1.8rem;
+    max-width: 900px; margin: -1rem auto 0; padding: 1rem 1.5rem 2.5rem;
     justify-content:center;
     position: relative; z-index: 1;
   }
   .index-link{
     --accent: var(--accent-default);
     display:flex; align-items:center; gap:0.5rem;
-    font-family:'JetBrains Mono', monospace; font-size: 0.78rem;
+    font-family:'JetBrains Mono', monospace; font-size: 0.72rem;
+    letter-spacing: 0.04em;
     color: var(--paper-dim);
     text-decoration:none;
-    border: 1px solid var(--line);
-    padding: 0.45rem 0.9rem 0.45rem 0.7rem;
-    border-radius: 999px;
-    transition: border-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
-    background: var(--bg-alt);
+    padding: 0.3rem 0 0.4rem;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease, color 0.2s ease;
   }
   .index-link:hover{
     color: var(--paper);
-    border-color: var(--accent);
-    transform: translateY(-1px);
+    border-bottom-color: var(--accent);
   }
   .index-dot{
-    width:7px; height:7px; border-radius:50%;
+    width:5px; height:5px; border-radius:50%;
     background: var(--accent);
     flex-shrink:0;
   }
@@ -274,64 +307,72 @@
 
   .drawer{
     --accent: var(--accent-default);
-    margin-top: 3rem;
+    margin-top: 3.6rem;
     scroll-margin-top: 2rem;
   }
 
   .drawer-header{
-    display:flex; align-items:baseline; gap: 0.9rem;
-    border-bottom: 2px solid var(--accent);
-    padding-bottom: 0.7rem;
-    margin-bottom: 1.4rem;
+    display:flex; align-items:baseline; gap: 1rem;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 0.8rem;
+    margin-bottom: 1.6rem;
+  }
+  .drawer-index{
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--accent);
+    opacity: 0.85;
   }
   .drawer-title{
     font-family:'Fraunces', serif; font-weight:600;
     font-size: 1.5rem; margin:0; flex:1;
+    letter-spacing: -0.005em;
   }
   .drawer-count{
     font-family:'JetBrains Mono', monospace;
-    font-size: 0.75rem; color: var(--paper-dim);
+    font-size: 0.7rem; letter-spacing: 0.04em; color: var(--paper-dim);
     white-space: nowrap;
   }
 
   .cards{
     display:grid;
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 0.9rem;
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
   }
 
   .card{
     --accent: inherit;
     display: block;
-    background: var(--bg-alt);
-    border: 1px solid var(--line);
-    border-left: 3px solid var(--accent, var(--accent-default));
-    border-radius: 6px;
-    padding: 1rem 1.1rem;
+    background: var(--bg);
+    border-left: 2px solid var(--accent, var(--accent-default));
+    padding: 1.15rem 1.25rem;
     position: relative;
     text-decoration: none;
     color: inherit;
     cursor: pointer;
-    transition: border-color 0.2s ease, background 0.2s ease, transform 0.15s ease;
+    transition: background 0.2s ease;
   }
   .drawer .card{ border-left-color: var(--accent); }
   .card:hover{
-    background: rgba(239,231,216,0.06);
-    border-color: var(--accent);
-    transform: translateY(-2px);
+    background: var(--bg-alt);
   }
 
   .card-title{
-    font-family:'Inter', sans-serif;
-    font-weight: 600;
-    font-size: 0.98rem;
-    margin: 0 0 0.7rem;
+    font-family:'Fraunces', serif;
+    font-weight: 500;
+    font-size: 1.02rem;
+    margin: 0 0 0.85rem;
     color: var(--paper);
-    line-height: 1.35;
+    line-height: 1.4;
+    letter-spacing: -0.005em;
   }
   .card-meta{
     display:flex; flex-wrap:wrap; align-items:center; gap: 0.7rem;
-    font-family:'JetBrains Mono', monospace; font-size: 0.7rem;
+    font-family:'JetBrains Mono', monospace; font-size: 0.68rem;
+    letter-spacing: 0.03em;
   }
   .card-year{
     color: var(--paper-dim);
@@ -347,10 +388,12 @@
 
   /* ---------- FOOTER ---------- */
   .site-footer{
-    text-align:center; padding: 2.5rem 1.5rem 3rem;
+    text-align:center; padding: 3rem 1.5rem 3.5rem;
     color: var(--paper-dim);
     font-family:'JetBrains Mono', monospace;
-    font-size: 0.75rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
     border-top: 1px solid var(--line);
   }
 
