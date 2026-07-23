@@ -553,6 +553,7 @@ const DADOS = [
   },
   {
     instituicao: "OUTROS",
+    instituicao_en: "OTHERS",
     cor: "#E8A33D", // âmbar
     cursos: [
       {
@@ -668,6 +669,12 @@ function getIdioma(){
 }
 function setIdioma(lang){
   localStorage.setItem('idioma', lang);
+}
+
+// Retorna o nome da instituição no idioma certo (usa instituicao_en se existir,
+// senão cai de volta pro nome em português)
+function nomeInstituicao(inst, idioma){
+  return idioma === 'en' ? (inst.instituicao_en || inst.instituicao) : inst.instituicao;
 }
 
 // Retorna o nome e os assuntos do curso no idioma certo

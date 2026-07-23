@@ -73,7 +73,7 @@
     return;
   }
 
-  document.title = nomeCurso(curso, idioma) + ' — ' + inst.instituicao;
+  document.title = nomeCurso(curso, idioma) + ' — ' + nomeInstituicao(inst, idioma);
   document.documentElement.style.setProperty('--accent', inst.cor);
 
   const assuntos = assuntosCurso(curso, idioma);
@@ -100,7 +100,7 @@
   }
 
   conteudo.innerHTML = `
-    <p class="eyebrow" style="color:${inst.cor}">${inst.instituicao}</p>
+    <p class="eyebrow" style="color:${inst.cor}">${nomeInstituicao(inst, idioma)}</p>
     <h1 class="titulo">${nomeCurso(curso, idioma)}</h1>
     <div class="ornament" style="--accent-ornament:${inst.cor}" aria-hidden="true"><span></span><i></i><span></span></div>
     <p class="ano">${curso.ano}</p>

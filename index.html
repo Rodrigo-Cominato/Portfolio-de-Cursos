@@ -95,7 +95,7 @@
     navLink.href = `#${id}`;
     navLink.className = 'index-link';
     navLink.style.setProperty('--accent', inst.cor);
-    navLink.innerHTML = `<span class="index-dot"></span>${inst.instituicao}`;
+    navLink.innerHTML = `<span class="index-dot"></span>${nomeInstituicao(inst, idioma)}`;
     indexNav.appendChild(navLink);
 
     // seção da instituição
@@ -107,7 +107,7 @@
     section.innerHTML = `
       <div class="drawer-header">
         <span class="drawer-index">${romano(instIdx + 1)}</span>
-        <h2 class="drawer-title">${inst.instituicao}</h2>
+        <h2 class="drawer-title">${nomeInstituicao(inst, idioma)}</h2>
         <span class="drawer-count">${inst.cursos.length} ${t.statCursos}</span>
       </div>
       <div class="cards"></div>
