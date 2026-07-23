@@ -80,13 +80,6 @@
     return str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-');
   }
 
-  function romano(num){
-    const valores = [[10,'X'],[9,'IX'],[5,'V'],[4,'IV'],[1,'I']];
-    let n = num, out = '';
-    for (const [v, s] of valores) { while (n >= v) { out += s; n -= v; } }
-    return out;
-  }
-
   DADOS.forEach((inst, instIdx) => {
     const id = slug(inst.instituicao);
 
@@ -106,7 +99,7 @@
 
     section.innerHTML = `
       <div class="drawer-header">
-        <span class="drawer-index">${romano(instIdx + 1)}</span>
+        <span class="drawer-index">${instIdx + 1}</span>
         <h2 class="drawer-title">${nomeInstituicao(inst, idioma)}</h2>
         <span class="drawer-count">${inst.cursos.length} ${t.statCursos}</span>
       </div>
