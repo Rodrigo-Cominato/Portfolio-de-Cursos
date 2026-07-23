@@ -588,6 +588,14 @@ const DADOS = [
         assuntos_en: ["Underwater Navigation","Diving Safety Procedures","Equipment Assembly and Use"],
         certificado: "certificados/(2022) Curso de Mergulho.pdf",
       },  
+      {
+        nome_pt: "Libras Básico",
+        nome_en: "Basic Brazilian Sign Language (Libras)",
+        ano: "2022",
+        assuntos_pt: ["Comunicação Inclusiva","Alfabeto Manual","Vocabulário Básico em Libras"],
+        assuntos_en: ["Inclusive Communication","Manual Alphabet (Fingerspelling)","Basic Brazilian Sign Language Vocabulary"],
+        certificado: "certificados/libras.pdf",
+      },
     ]
   },
 ];
